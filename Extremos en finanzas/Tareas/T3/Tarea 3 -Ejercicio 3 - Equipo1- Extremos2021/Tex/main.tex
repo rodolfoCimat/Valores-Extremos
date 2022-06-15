@@ -1,0 +1,745 @@
+%Tarea 3,Extremos 
+%Ejercicio 3
+% Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel 
+% Mestría en Probabilidad y Estadística.
+\documentclass[10.5pt,notitlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}       
+\usepackage{enumitem}   
+\usepackage{enumerate}
+\usepackage{verbatim} 
+\usepackage{bbm}
+\usepackage[backend=biber,style=apa]{biblatex}
+\usepackage{csquotes}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\urlstyle{same}
+\addbibresource{refer.bib}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\usepackage{makecell}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\newenvironment{solucion}
+  {\begin{proof}[Solución]}
+  {\end{proof}}
+\pagestyle{plain}
+\usepackage{pdflscape}
+\usepackage[table, dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage[bottom]{footmisc}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{placeins}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Jj}{\mathcal{J}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\oo}{\varnothing}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\lL}{\mathrm{L}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\toPP}{\overset{\PP}{\to}}
+\newcommand{\toCS}{\overset{\mathrm{c.s.}}{\to}}
+\newcommand{\toL}{\overset{\mathrm{L}_1}{\to}}
+\newcommand{\todis}{\overset{\mathrm{d}}{\to}}
+\newcommand{\approxu}{\overset{u}{\approx}}
+\newcommand{\igualD}{\overset{d}{=}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\corch}[1]{\left[ #1 \right]}
+\newcommand{\kis}[1]{\left\{ #1 \right\}}
+\newcommand{\pare}[1]{\left( #1 \right)}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\Matrix}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+\theoremstyle{plain}
+
+\newtheorem{thm}{Teorema}[section] % reset theorem numbering for each chapter
+\newtheorem{defn}[thm]{Definición} % definition numbers are dependent on theorem numbers
+\newtheorem{lem}[thm]{Lema} % same for example numbers
+\newtheorem{remarkex}{Observación}
+\newenvironment{rem}
+  {\pushQED{\qed}\renewcommand{\qedsymbol}{$\triangle$}\remarkex}
+  {\popQED\endremarkex}
+
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{etoolbox}
+\usepackage{fancybox}
+
+\newenvironment{myleftbar}{%
+\def\FrameCommand{\hspace{0.6em}\vrule width 2pt\hspace{0.6em}}%
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\declaretheoremstyle[
+spaceabove=6pt,
+spacebelow=6pt
+headfont=\normalfont\bfseries,
+headpunct={} ,
+headformat={\cornersize*{2pt}\ovalbox{\NAME~\NUMBER\ifstrequal{\NOTE}{}{\relax}{\NOTE}:}},
+bodyfont=\normalfont,
+]{exobreak}
+
+\declaretheorem[style=exobreak, name=Ejercicio,%
+postheadhook=\leavevmode\myleftbar, %
+prefoothook = \endmyleftbar]{exo}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\title{Examen Parcial 1, Extremos \\
+Ejercicio 1\\
+Rojas Gutiérrez Rodolfo Emmanuel\\ 
+Maestría en Probabilidad y Estadística.}
+
+\author{}
+\begin{document}
+\begin{flushleft}
+Tarea 3, Extremos.\\
+Ejercicio 3.\\   
+Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel.\\
+Maestría en Probabilidad y Estadística.
+\end{flushleft}
+\setcounter{exo}{2}
+\begin{exo}
+Supón que la base de datos "danishuni" de la librería de \(R\) "fitdistrplus", son montos de reclamos que llegan de acuerdo a un proceso de Poisson de intensidad \(\lambda\), (supón independencia entre reclamos y del proceso Poisson respecto a los reclamos).
+\begin{itemize}
+    \item[a)] Si \(N(t)\) denota el total de reclamos por mes y cada reclamo \(X_j\) tiene distribución común \(F\), halla la distribución teórica de 
+    \[
+    M_{N(t)}:= \max_{1 \leq j \leq N(t)}\kis{X_{j}}.
+    \]
+    donde, si \(N(t) = 0\) entonces \(M_{N(t)} = 0\).
+    \item[b)] Estima \(\PP[M_{N(t)} > 10]\) usando los datos en "danishuni", bajo el supuesto de que \(N = \kis{N(t):t \geq 0 }\) es un proceso Poisson. Justifica con la mayor formalidad posible, todas las aproximaciones que hagas.
+    \item[c)] Válida o refuta el supuesto de que \(N\) es un proceso de Poisson
+\end{itemize}
+\end{exo}
+\textbf{a)}
+\begin{solucion}
+Para \(t \geq 0\), se considerará que \(N(t)\) es el número de reclamaciones que han llegado a la compañía en el intervalo de tiempo \((0,t]\), donde \(t\) se encuentra dado en escala de días, adicionalmente, se supondrá que el proceso estocástico \(N = \kis{N(t) : t\geq 0}\) forma un proceso de Poisson de intensidad \(\lambda\) y que los montos de las reclamaciones, los cuales se representarán mediante el conjunto de variables aleatorias \(X = \kis{X_n : n \in \NN}\), son independientes entre ellos y del proceso Poisson \(N\) además de idénticamente distribuidos, con función de distribución común \(F\) tal que \(F(0) = 0\) y \(F(x)>0\) para cada \(x > 0\).\footnote{Dado que, se tienen montos de reclamaciones, estos supuestos sobre la distribución de los mismos es totalmente aceptable, miéntras que no exista un monto mínimo de reclamación, este supuesto se explorará más adelante en el conjunto de datos dado.} Así, dados \(x \in \RR\) y \(t \geq 0\), si se denota por \(F_{t}\) a la función de distribución de \(M_{N(t)}\), se sigue que 
+\begin{align*}
+    F_{t}(x) = \PP[M_{N(t)} \leq x] &= \sum_{j = 0}^{\infty}\PP\corch{M_{N(t)}\leq x| N(t) = j}\PP\corch{N(t) =  j}\\ 
+                                    &= \sum_{j = 1}^{\infty}\PP\corch{M_{N(t)}\leq x| N(t) = j}\PP\corch{N(t) =  j} + \PP\corch{M_{N(t)}\leq x| N(t) = 0}\PP[N(t) = 0]\\
+                                    &= \sum_{j = 1}^{\infty}\PP\corch{M_{j}\leq x| N(t) = j}\PP\corch{N(t) =  j} + \PP\corch{M_{0}\leq x| N(t) = 0}\PP[N(t) = 0]\\
+                                    &=  \sum_{j = 1}^{\infty}\PP\corch{M_{j}\leq x}\PP\corch{N(t) =  j} + \mathbbm{1}_{\kis{x \geq 0}}\PP[N(t) = 0],
+\end{align*}
+donde, la segunda igualdad en la primer linea se sigue de la Ley de Probabilidad Total, mientras que, la igualdad en la cuarta linea se debe a que \(M_{0} = 0\) y a que para \(j \geq 1\), se tiene que \(M_{j} = \max_{1 \leq i \leq j}\kis{X_i}\) es independiente de \(N(t)\), pues, la sucesión de variables aleatorias \(X\) es independiente del proceso de Poisson \(N\), por lo que, se puede remover la condicional. De este modo, es posible continuar la igualdad anterior de la siguiente manera 
+\begin{align*}
+      F_{t}(x) &=  \sum_{j = 1}^{\infty}\PP\corch{M_{j}\leq x}\PP\corch{N(t) =  j} + \mathbbm{1}_{\kis{x \geq 0}}\PP[N(t) = 0]\\ 
+               &=  \sum_{j = 1}^{\infty}\PP\corch{M_{j}\leq x}\frac{e^{-\lambda t} (\lambda t)^{j}}{j!} + \mathbbm{1}_{\kis{x \geq 0}}e^{-\lambda t}\\
+               &=  \sum_{j = 1}^{\infty}F^{j}(x)\frac{e^{-\lambda t} (\lambda t)^{j}}{j!} + \mathbbm{1}_{\kis{x \geq 0}}e^{-\lambda t},
+\end{align*}
+donde, la segunda igualdad se debe a que \(N(t)\) posee distribución Poisson\((\lambda t)\), pues, \(N\) es un Proceso de Poisson de intensidad \(\lambda\), mientras que, la tercera igualdad se debe a que para \(j\geq 1\), las variables aleatorias en \(\kis{X_{1}, \hdots, X_{j}}\) son independientes e idénticamente distribuidas con función de distribución común \(F\),\footnote{Pues, \(X\) es una secesión de variables aleatorias i.i.d, con función de distribución común \(F\).} por lo que, la función de distribución de \(M_{j} = \max_{1 \leq i \leq j}\kis{X_{j}}\) evaluada en \(x\), en notación \(\PP[M_{j} \leq x]\), es precisamente igual a \(F^{j}(x)\). Luego, de la igualdad precedente se concluye que
+\begin{equation}\label{lab.1}
+     F_{t}(x) = \sum_{j = 1}^{\infty}F^{j}(x)\frac{e^{-\lambda t} (\lambda t)^{j}}{j!} + \mathbbm{1}_{\kis{x \geq 0}}e^{-\lambda t}.
+\end{equation}
+Ahora, note que si \(x < 0\) entonces \(F(x) = 0\), pues, por hipótesis se tiene que \(F(0) = 0\), además, en ese caso también se satisface que \(\mathbbm{1}_{\kis{x\geq 0}} = 0\), de este modo, cuando \(x < 0\) se sigue por lo previamente comentado y por la ecuación en \eqref{lab.1}, que  
+\begin{equation}\label{lab.2}
+ F_{t}(x) = 0.    
+\end{equation}
+Por otro lado, si \(x = 0\) entonces \(\mathbbm{1}_{\kis{x \geq 0}} = 1\), sin embargo, por hipótesis se cumple que \(F(0) = 0\), así, de la ecuación \eqref{lab.1} se sigue que 
+\begin{align}\label{lab.21}
+     F_{t}(0) &= \sum_{j = 1}^{\infty}F^{j}(0)\frac{e^{-\lambda t} (\lambda t)^{j}}{j!} + \mathbbm{1}_{\kis{x \geq 0}}e^{-\lambda t} \nonumber\\ 
+              &= e^{- \lambda t}
+\end{align}
+Por último, si \(x > 0\) entonces \(\mathbbm{1}_{\kis{x \geq 0}} = 1\) y \(F(x)> 0\) por hipótesis, por lo que, de la ecuación \eqref{lab.1} se sigue que\footnote{Note que, el supuesto \(F(x) > 0\) para \(x > 0\), nos permite permite elevar \(F(x)\) a la cero y asegurar que el resultado es uno.} 
+\begin{align}
+       F_{t}(x) &= \sum_{j = 1}^{\infty}F^{j}(x)\frac{e^{-\lambda t} (\lambda t)^{j}}{j!} + e^{-\lambda t}= \sum_{j = 1}^{\infty}\frac{e^{-\lambda t} (\lambda t F(x))^{j}}{j!} + e^{-\lambda t}\nonumber\\
+                &= \sum_{j = 1}^{\infty}\frac{e^{-\lambda t} (\lambda t F(x))^{j}}{j!} + e^{-\lambda t} \frac{(\lambda t F(x))^{0}}{0!}= \sum_{j = 0}^{\infty}\frac{e^{-\lambda t} (\lambda t F(x))^{j}}{j!}.\label{lab.4}
+\end{align}
+Ahora, es un resultado conocido que para cualquier \(u \in \RR\), se cumple que 
+\[
+\sum_{k = 0}^{\infty}\frac{u^{k}}{k!} = e^{u},
+\]
+así, debe ser el caso que 
+\[
+\sum_{k = 0}^{\infty}\frac{e^{-\lambda t}u^{k}}{k!} = e^{-\lambda t}\sum_{k = 0}^{\infty}\frac{u^{k}}{k!} = e^{- \lambda t + u}.
+\]
+De este modo, por la igualdad anterior se concluye de la ecuación \eqref{lab.4}, que 
+\[
+  F_{t}(x) = \exp\kis{-\lambda t + \lambda t F(x)} = \exp\kis{-\lambda t( 1- F(x))} =  \exp\kis{-\lambda t\overline{F}(x)}, \text{ si } x > 0.
+\]
+De la igualdad anterior, de la igualdad en \eqref{lab.21} y se la igualdad en \eqref{lab.2}, se concluye que 
+\begin{equation*}
+    F_{t}(x) = \PP[M_{N(t)} \leq x] =  \exp\kis{-\lambda t}\mathbbm{1}_{\kis{x = 0}} + \exp\kis{-\lambda t\overline{F}(x)}\mathbbm{1}_{\kis{x > 0}}.
+\end{equation*}
+Ahora, dado que \(F(0) = 0\) entonces \(\overline{F}(0)=1- F(0) = 1\), por lo que, la igualdad anterior puede simplificarse de la siguiente forma
+\begin{equation}\label{lab.6}
+    F_{t}(x) = \PP[M_{N(t)} \leq x] =  \exp\kis{-\lambda t\overline{F}(x)}\mathbbm{1}_{\kis{x \geq 0}}.
+\end{equation}
+Por lo cual, de la arbitrariedad de \(x \in \RR\) y \(t \geq 0\) se sigue el resultado.
+\end{solucion}
+\newpage 
+Primeramente, se probaran dos Lemas que serán de utilidad para la resolución del inciso \textbf{b)}, el primero es un resultado teórico sobre proporcionalidad asintótica 
+\begin{lem}\label{lem.1}
+Para \(t > 0\) sean \(X\), \(N\), \(F\) y \(F_{t}\) como en el inciso anterior, entonces, si \(\omega_F\) y \(\omega_{t}\) representan a los extremos derechos de \(F\) y \(F_t\) respectivamente, se sigue que: 
+\[
+\omega_{F} = \omega_{t}, 
+\]
+además, en caso de que \(\omega_F = \infty\), se cumple que
+\[
+\overline{F}_{t}(x) \approx \lambda t \overline{F}(x), \text{ cuando } x \to \infty = \omega_{F}. 
+\]
+\end{lem}
+\begin{proof}
+Tome \(t > 0\) y sean  \(X\), \(N\), \(F\) y \(F_t\) como en el enunciado del Lema \ref{lem.1}. Primeramente, se probará que \(\omega_{F} = \omega_{t}\). Con esto en mente, considere primeramente el caso en el que \(\omega_F = \infty\), entonces, dado cualquier \(x \in \RR\) debe ser el caso que \(F(x) < 1\) o equivalentemente que 
+\begin{equation}
+\overline{F}(x)> 0, \text{ para cada } x\in \RR.    
+\end{equation}\label{lab.20}
+Ahora, por lo demostrado en el inciso anterior se sabe que para \(x \in \RR\), se cumple que 
+\[
+F_{t}(x) = \exp\kis{- \lambda t\overline{F}(x)}\mathbbm{1}_{\kis{x \geq 0}}. 
+\]
+Así, si \(x < 0\) se tiene que \(F_{t}(x) = 0\), mientras que, si \(x \geq 0\) se satisface que
+\[
+F_{t}(x) = \exp\kis{- \lambda t\overline{F}(x)} < 1,
+\]
+pues, por \eqref{lab.20} se tiene que \(\overline{F}(x) > 0\) y como \(\lambda,t \in (0, \infty)\), se sigue que \(\lambda t \overline{F}(x) > 0\), de lo cual, se obtiene la aseveración hecha arriba pues \(e^{-u} < 1\) para cada \(u > 0\). De este modo, se concluye que \(F_{t}(x) < 1\) y dada la arbitrariedad de \(x\in \RR\), es posible deducir de lo anterior que 
+\[
+F_{t}(x) < 1, \text{ para cada } x\in \RR.
+\]
+Así, \(\omega_{t} = \sup\kis{x \in \RR : F_{t}(x) < 1} = \infty = \omega_{F}\). Por otro lado, si se supone que \(\omega_{F} < \infty\) entonces \(\omega_{F} > 0\), pues \(F(0) = 0\) por hipótesis y \(F(\omega_{F}) = 1\) ya que toda función de distribución con extremo derecho finito, evaluada en dicho extremo derecho es igual a uno por la continuidad por la derecha de la misma. De este modo 
+\begin{align*}
+    F_{t}(\omega_{F}) &= \exp\kis{- \lambda t\overline{F}(\omega_{F})}\mathbbm{1}_{\kis{\omega_{F} \geq 0}}= \exp\kis{- \lambda t (1 - F(\omega_{F}))} \\
+                      &=  \exp\kis{- \lambda t (1 - 1)} = \exp\kis{0}=1.
+\end{align*}
+Con lo cual, se ha obtenido que 
+\begin{equation}\label{lab.26}
+     F_{t}(\omega_{F}) = 1.
+\end{equation}
+Ahora, por definición de \(\omega_F\), debe ser el caso que para cada \(x < \omega_F\) se tiene que \(F(x) < 1\), lo que es equivalente a 
+\begin{equation}\label{lab.27}
+    \overline{F}(x) > 0, \text{ para cada } x < \omega_{F}.
+\end{equation}
+Por otra parte, dado que para \(x < \omega_F\) se tiene que 
+\[
+F_{t}(x) = \exp\kis{- \lambda t\overline{F}(x)}\mathbbm{1}_{\kis{x \geq 0}}. 
+\]
+Entonces, si \(x < 0\) se cumple que \(F_{t}(x) = 0\), mientras que, si \(x\in[0,\omega_{F})\) se satisface que
+\[
+F_{t}(x) = \exp\kis{- \lambda t\overline{F}(x)} < 1,
+\]
+pues, por \eqref{lab.27} se tiene que \(\overline{F}(x) > 0\) y como \(\lambda,t \in (0, \infty)\) entonces \(\lambda t \overline{F}(x)> 0\), de lo cual se obtiene la aseveración realizada arriba. De este modo, se concluye que \(F_{t}(x) < 1\) y dada la arbitrariedad de \(x< \omega_F\), es posible concluir de lo anterior que 
+\[
+F_{t}(x) < 1, \text{ para cada } x < \omega_{F}.
+\]
+Así, de la desigualdad previa y de la igualdad en \eqref{lab.26}, se obtiene que \(\omega_t = \sup\kis{x \in \RR : F_{t}(x) < 1}=\omega_{F}\). Con lo cual, se concluye que sin importar el caso \(\omega_{F} = \omega_{t}\) probando la primer aseveración hecha en el Lema \ref{lem.1}. Ahora, para probar la relación de proporcionalidad asintótica enunciada en este Lema, note que 
+\begin{equation}\label{lab.29}
+ \lim_{x \to 0}\frac{1 - e^{-\lambda t x}}{x} = \lambda t.   
+\end{equation}
+Para ver esto, defina las funciones \(f: \RR \to \RR\) y \(g: \RR \to \RR\) como \(f(x) = x\) y \(g(x) = 1 - e^{-\lambda t x}\), entonces, es claro que \(\lim_{x \to 0}f(x) = \lim_{x \to 0}g(x) = 0\) y como ambas funciones son claramente diferenciables en \(\RR\), la Regla de L'Hopital nos dice que el límite del cociente \(g(x)/f(x)\) cuando \(x \to 0\) existe, si y solo si el límite del cociente \(g'(x)/f'(x)\) cuando \(x\to 0\) existe, más aún, en dicho caso se satisface que 
+\[
+\lim_{x \to 0}\frac{g(x)}{f(x)} = \lim_{x\to 0}\frac{g'(x)}{f'(x)}.
+\]
+Ahora, para \(x\in \RR\) note que \(f'(x) = 1\) y \(g'(x) = \lambda t e^{-\lambda t x}\), por lo cual se cumple que 
+\[
+\frac{g'(x)}{f'(x)} = g'(x) = \lambda t e^{- \lambda t x}, \text{ para cada } x \in \RR.
+\]
+De este modo, por la continuidad de la función exponencial es claro que el limite del cociente \(g'(x)/f'(x)\) cuando \(x\to 0\) existe y es igual a uno, de donde se sigue por la Regla de L'Hopital que el límite del cociente \(g(x)/f(x)\) cuando \(x \to 0\) existe, más aún, se tiene que 
+\[
+\lim_{x \to 0}\frac{g(x)}{f(x)} =  \lambda t. 
+\]
+Lo que prueba la aseveración en \eqref{lab.29}. Ahora, suponga que \(\omega_F = \infty\) entonces se tiene que:\footnote{Donde, la división por \(\overline{F}(x)\) esta bien definida para cada \(x\in \RR\), pues, \(\overline{F}(x) = 1 - F(x)> 0\) para cada \(x\in \RR\) porque \(\omega_F = \infty\).} 
+\begin{equation}\label{lab.31}
+\frac{\overline{F}_{t}(x)}{\overline{F}(x)} = \frac{ 1- \exp\kis{-\lambda t\overline{F}(x)}}{\overline{F}(x)}, \text{ para cada } x\geq 0.    
+\end{equation}
+Finalmente, note que para cada \(x \in \RR\) se tiene que  
+\begin{align}\label{lab.30}
+    \frac{ 1- \exp\kis{-\lambda t\overline{F}(x)}}{\overline{F}(x)} =  \frac{ 1- \exp\kis{-\lambda tu(x)}}{u(x)}, \text{ para cada } x \in \RR.
+\end{align}
+donde, para \(x\in \RR\) se tiene que \(u(x) = \overline{F}(x)\). Ahora, como \(u(x) = \overline{F}(x) = 1- F(x) \downarrow 0\) cuando \(x \to \infty\), se concluye de la igualdad en \eqref{lab.29} que el \(\lim_{x \to \infty} [1- \exp\kis{-\lambda tu(x)}/(u(x))]\) existe y puede calcularse como 
+\begin{align*}
+    \lim_{x \to \infty}\frac{ 1- \exp\kis{-\lambda t\overline{F}(x)}}{\overline{F}(x)} &= \lim_{x \to \infty}\frac{ 1- \exp\kis{-\lambda tu(x)}}{u(x)}\\ 
+                                                                                       &= \lim_{u(x) \downarrow 0}\frac{ 1- \exp\kis{-\lambda tu(x)}}{u(x)}\\
+                                                                                       &= \lambda t.
+\end{align*}
+donde, la primer igualdad se debe a la igualdad en \eqref{lab.30}. Así, por la convergencia anterior y la igualdad en \eqref{lab.31}, es posible concluir que 
+\[
+\lim_{x\to \infty}\frac{\overline{F}_{t}(x)}{\overline{F}(x)} \text{ existe y es igual a } \lambda t.
+\]
+Finalmente, por la primer parte de este Lema debe ser el caso que \(\omega_t = \omega_F = \infty\), entonces, lo anterior es equivalente a 
+\[
+\overline{F}_{t}(x) \approx \lambda t \overline{F}(x), \text{ cuando } x \to \infty =\omega_{F} = \omega_{t}.
+\]
+Lo que concluye la prueba de este resultado.
+\end{proof}
+Finalmente, el siguiente Lema servirá para justificar de manera teórica, las aproximaciones que se harán a lo largo del inciso \textbf{b)}
+
+
+\begin{lem}\label{lem.2}
+Para \(t > 0\) sean \(X\), \(N\), \(F\) y \(F_{t}\) como en el inciso anterior. Si \(\omega_{F} = \infty\) y además se cumple que   
+\[
+\overline{F}(x + u) \approxu \overline{F}(u)\overline{P}_{\xi,a(u)}(x),
+\]
+que \(\kis{Z_n : n \in \NN}\) es una sucesión de variables aleatorias Poisson de parámetro \(\lambda\) y, para cada \(m \in \NN\) se define 
+\begin{equation}
+    \hat{\lambda}^{(m)} = \frac{\sum_{i = 1}^{m}Z_{i}}{m}, \quad \overline{F}_{m}(x) = \frac{\sum_{i = 1}^{m}\mathbbm{1}_{\kis{X_{i} > x}}}{m}, \text{ para } x \in \RR.
+\end{equation}
+Entonces, dado \(\ee > 0\) existe \(u_0\) tal que para cada \(u \geq u_0\), se satisface la convergencia:
+ \[
+\PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F}_{t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee}\to 0, \text{ cuando } m \to \infty.
+\]
+Y, existe \(w_0\) tal que para cada \(u \geq w_0\) se satisface que 
+ \[
+\PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F}_{t}(x + u) - \pare{1-\exp\kis{- \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}} > \ee}\to 0, \text{ cuando } m \to \infty.
+\]
+donde, \(k\) es un número natural fijo.
+\end{lem}
+\begin{proof}
+Tome \(t > 0\) y sean \(X\), \(N\), \(F\),\(F_{t}\), \(\kis{Z_{n} : n \in \NN}\), \(\kis{G_{m} : m \in \NN}\) y \(\kis{\hat{\lambda}^{(m)} : m \in \NN}\) como en el enunciado del Lema \ref{lem.2}. Entonces, dado que la distribución Poisson de parámetro \(\lambda\) posee media y varianza finita,\footnote{Ambas con valor igual a \(\lambda\).} y dado que \(\kis{Z_{n} : n \in \NN}\) es una sucesión de variables aleatorias i.i.d con distribución \(Poisson(\lambda)\), se sigue por la ley débil de los grandes números que 
+\begin{equation*}
+\hat{\lambda}^{(m)} \toPP \lambda, \text{ es decir para \(m \in \NN\) se tiene que } \hat{\lambda}^{(m)} \text{ es un estimador débilmente consistente de \(\lambda\).}    
+\end{equation*}  
+Luego, note que \(\kis{\hat{\lambda}^{(m+k)} : m \in \NN}\) con \(k\in \NN\) es una subsucesión de \(\kis{\hat{\lambda}^{(m)} : m \in \NN}\) y, por el curso de Probabilidad Avanzada, se sabe que toda subsuseción de una sucesión convergente en probabilidad, es convergente en probabilidad y converge al mismo límite, así, se concluye de lo anterior que: 
+\begin{equation}\label{lab.104}
+    \hat{\lambda}^{(m + k)} \toPP \lambda, \text{ cuando } m \to \infty.   
+\end{equation}
+Por otro lado, por como se han tomado las funciones de distribución \(F\) y \(F_t\), entonces, por el Lema \ref{lem.1} se tiene que los extremos derechos de \(F_t\) y \(F\) coinciden, en notación  \(\omega_{F} = \omega_{t}\), más aún, como se ha dado por hipótesis que \(\omega_{F} = \infty\) se satisface, nuevamente por el Lema \ref{lem.1}, que
+\begin{equation}\label{lab.epale2}
+  \overline{F}_{t}(x) \approx \lambda t \overline{F}(x), \text{ cuando } x \to \infty =\omega_{F} = \omega_{t}.  
+\end{equation}
+Además, note que por hipótesis se tiene que 
+\begin{equation}\label{lab.epale}
+    \overline{F}(x + u) \approxu \overline{F}(u)\overline{P}_{\xi,a(u)}(x). 
+\end{equation}
+De esta forma, haciendo uso del Teorema 3.3 de las notas de clase, es posible concluir de lo anterior y de la relación de proporcionalidad asintótica en \eqref{lab.epale2},\footnote{Pues, en efecto \(\lambda t>0 \).} que
+\begin{equation*}
+\overline{F_t}(x + u) \approxu \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x).     
+\end{equation*}
+Así, dado \( \ee> 0\) existe \(u_0\) tal que para todo \(u \geq u_0\), se cumple que 
+\begin{equation}\label{lab.106}
+    \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} < \frac{\ee}{2},
+\end{equation}
+De este modo, note que dada \(m \in \NN\) y \(u \geq u_0\) se satisface que:
+{\tiny
+\begin{align*}
+     &\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)} \\ 
+     &= \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) - \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x) +  \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)} \\ 
+     &\leq \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) - \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\\ 
+     &<\frac{\ee}{2} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)},
+\end{align*}}%
+donde, la primer desigualdad se da en virtud de la desigualdad del triángulo, mientras que, la ultima se da gracias a lo estipulado en \eqref{lab.106}. Así, se sigue para \(m \in \NN\) y \(u \geq u_0\) arbitrarios, que 
+{\tiny
+\begin{align}
+\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)} &\leq\frac{\ee}{2}  +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\ 
+&=\frac{\ee}{2} + \sup_{x \in (0, \infty)}\corch{\abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)}}. \label{lab.108}
+\end{align}
+}%
+Ahora, dado que \(\overline{P}_{\xi,a(u)}\) es la cola de una distribución generalizada de Pareto, entonces, \(\abs{\overline{P}_{\xi,a(u)}(x)} \leq 1\) para cada \(x \in (0, \infty)\), por lo cual, se satisface que 
+\[
+\abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)} \leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)}, 
+\]
+para cada \(x \in (0, \infty)\). Por ende, de la desigualdad anterior se concluye que 
+\[
+\sup_{x \in (0, \infty)}\corch{\abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)}} \leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)}.
+\]
+Así, de la desigualdad previa y de la desigualdad en \eqref{lab.108} se sigue para \(m \in \NN\) y \(u \leq u_0\) arbitrarias, que  
+\[
+\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)} \leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)} + \frac{\ee}{2}.
+\]
+Ahora, observe que la desigualdad precedente implica que
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee} \subseteq  \kis{ \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)} + \frac{\ee}{2} > \ee}
+\]
+}%
+o, equivalentemente
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee} \subseteq  \kis{ \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)} > \frac{\ee}{2} }.
+\]
+}%
+Por lo cual, dada la monotonía de las medidas de probabilidad, se obtiene que
+{\tiny 
+\begin{equation*}
+    \PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee}  \leq  \PP \corch{ \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)} > \frac{\ee}{2} }. 
+\end{equation*}
+}
+Luego, de la arbitrariedad \(m \in \NN\) se concluye de la desigualdad anterior que 
+{\tiny 
+\begin{equation}\label{lab.110}
+  0\leq\PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee}  \leq \PP \corch{ \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)} > \frac{\ee}{2} }, \text{ para cada }m \in \NN.
+\end{equation}
+}
+con \(u \geq u_0\) arbitraria. Ahora, observe que por el Teorema de Glivenko-Cantelli, se tiene que
+\begin{equation}\label{lab.111}
+\PP\corch{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{F}(y) - \overline{F}_{m}(y)} = 0}= 1,     
+\end{equation}
+De este modo, tome \(\omega \in \kis{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{F}(y) - \overline{F}_{m}(y)} = 0}\), entonces 
+\[
+\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{F}(y) - \overline{F}_{m}(y)}(\omega) = 0
+\]
+y
+\[
+0 \leq \abs{\overline{F}(u) - \overline{F}_{m}(u)}(\omega) \leq \sup_{y \in \RR}\abs{\overline{F}(y) - \overline{F}_{m}(y)}(\omega), \text{ para cada } m \in \NN.
+\]
+entonces, por el Teorema de la Encajadura de Límite\footnote{Coloquialmente Teorema del Sándwich} es posible concluir de las dos relaciones anteriores, que 
+\[
+ \lim_{m \to \infty}\abs{\overline{F}(u) - \overline{F}_{m}(u)}(\omega) = 0,
+\]
+por lo que \(\omega \in \kis{ \lim_{m \to \infty}\abs{\overline{F}(u) - \overline{F}_{m}(u)} = 0}\), de donde se concluye que 
+\[
+\kis{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{F}(y) - \overline{F}_{m}(y)} = 0}\subseteq \kis{\lim_{m \to \infty}\abs{\overline{F}(u) - \overline{F}_{m}(u)} = 0}.
+\]
+De este modo, usando la monotonía de las medidas de probabilidad, la contención anterior y la igualdad en \eqref{lab.111}, se sigue que 
+\[
+\PP\corch{\lim_{m \to \infty}\abs{\overline{F}(u) - \overline{F}_{m}(u)} = 0} = 1, 
+\]
+lo anterior quiere decir que 
+\[
+\abs{\overline{F}(u) - \overline{F}_{m}(u)} \toCS 0, \text{ cuando } m \to \infty,
+\]
+o, equivalentemente que 
+\[
+ \overline{F}_{m}(u) \toCS \overline{F}(u),  \text{ cuando } m \to \infty.
+\]
+Luego, como convergencia c.s implica convergencia en probabilidad entonces por la convergencia anterior, se tiene que
+\begin{equation}\label{lab.12}
+   \overline{F}_{m}(u) \toPP \overline{F}(u),  \text{ cuando } m \to \infty.  
+\end{equation}
+ Finalmente, de la relación anterior, de la relación de convergencia \eqref{lab.104} y el Teorema 1.2 contenido en el Ejercicio 1 de esta tarea, se sigue que 
+ \[
+  \hat{\lambda}^{(m + k)}\overline{F}_{m}(u) \toPP \lambda\overline{F}(u), \text{ cuando } m \to \infty,
+ \]
+ Por lo cual, se debe tener que 
+ \[
+ \PP\corch{ \abs{ \hat{\lambda}^{(m + k)} t\overline{F}_{m}(u) - \lambda t \overline{F}(u)} > \frac{\ee}{2}} = \PP\corch{ \abs{ \hat{\lambda}^{(m + k)}\overline{F}_{m}(u) - \lambda\overline{F}(u)} > \frac{\ee}{2t}} \to 0, \text{ cuando } m \to \infty.
+ \]
+ pues, \(t\) y \(\ee\) son números positivos. Así, de lo anterior, la desigualdad en \eqref{lab.110} y el Teorema de la Encajadura del Limite, se sigue que 
+  \[
+ \PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee} \to 0, \text{ cuando } m \to \infty.
+ \]
+ Y, de la arbitrariedad de \(u \geq u_0\) se concluye de lo anterior que, para cada \(u \geq u_0\) se cumple que 
+  \[
+ \PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee} \to 0, \text{ cuando } m \to \infty.
+ \]
+ De este modo, dado \(\ee > 0\) se ha encontrado \(u_0\) tal que para cada \(u \geq u_0\), se satisface la convergencia:
+\begin{equation}\label{lab.1111}
+ \PP\corch{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}  > \ee} \to 0, \text{ cuando } m \to \infty.    
+\end{equation}
+Lo que concluye el primer resultado enunciado de este Lema. Ahora, para probar el segundo resultado enunciado en este Lema, note que gracias a la relación asintótica en \eqref{lab.epale}, se tiene que dado \(\ee >0\) existe \(w_0\) tal que para cada \(u \geq w_0\), se satisface que\footnote{Dado que \(\lambda,t\in(0,\infty)\) por hipótesis, no hay problemas por divisiones entre cero.}
+\begin{equation}\label{lab.201}
+    \sup_{x \in (0, \infty)}\abs{\overline{F}(x + u) - \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} < \frac{\ee}{2 \lambda t },
+\end{equation}
+Así, observe que dada \(m \in \NN\) y \(u \geq w_0\) se satisface que:\footnote{En este punto, es importante destacar que sin perdida de generalidad es posible suponer que \(w_0\geq 0\), ya que de no ser así, podemos tomar \(w_0' =\max\kis{w_0,0}\) con lo que se cumple que \(w_0' \geq w_0\) y como \eqref{lab.201} se cumple para cada \(u\geq w_0\), en particular se cumplirá para cada \(u \geq w_0'\). Se hace incapie en esto, pues si \(w_0\) no se pudiese suponer mayor o igual a cero, entonces, no se podría asegurar que para \(x >0\) y \(u\geq w_0\) se satisfaga que \(F_{t}(x + u)\) tenga la forma especificada más abajo. }
+{\tiny
+\begin{align*}
+     &\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}} \\
+     &= \sup_{x \in (0, \infty)}\abs{\exp\corch{- \lambda t \overline{F}(x+u)} -  \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}} \\ 
+     &\leq \sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(x+u) -  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x) } \\
+\end{align*}}%
+donde, para obtener la desigualdad previa se ha usado que la función \(f:[0, \infty) \to (0,1]\) dada por \(f(x) = e^{-x}\), es Lipchitz continua con constante de Lipshitz uno,\footnote{Ver anexo \ref{Ane.3} para una prueba formal de este hecho.} pues los exponentes en las exponenciales dentro del supremo en le segundo renglón son variables aleatorias no negativas y finitas, ya que \(\hat{\lambda}^{(m+k)}\) y \(\overline{F}_{m}(u)\) son variables aleatorias no negativas y finitas,\footnote{En realidad de \(\hat{\lambda}^{(m+k)}\) es mayor o igual a cero  y finita de manera casi segura, no obstante, si suponemos que el espacio de probabilidad en el que se esta trabajando es completo, entonces, es posible afirmar que \(\hat{\lambda}^{(m+k)}\) es no negativa y finita en todas partes.} además de que para \(x\in (0,\infty)\) se cumple que \(\overline{P}_{\xi,a(u)}(x)\) y \(\overline{F}(x+u)\) son cantidades no negativas, por ser colas de funciones de distribución evaluadas en \(x\) y \(x+ u\) respectivamente, aunado al hecho de que \(\lambda\) y \(t\) son números positivos. Luego, al hacer uso de la desigualdad del triángulo, es posible continuar la desigualdad inmediata anterior como:
+{\tiny
+\begin{align} \label{lab.2000}
+     &\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}\nonumber\\
+     &\leq\sup_{x \in (0, \infty)}\abs{\lambda t\overline{F_t}(x + u) - \lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\ 
+     &= \sup_{x \in (0, \infty)}\corch{\abs{\lambda t}\abs{\overline{F_t}(x + u) - \overline{F}(u)\overline{P}_{\xi,a(u)}(x)}} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\ 
+     &= \abs{\lambda t}\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\ 
+     &= \lambda t\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \overline{F}(u)\overline{P}_{\xi,a(u)}(x)} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\
+     &<\frac{\lambda t \ee}{2 \lambda t} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\
+     &= \frac{\ee}{2} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(\xi)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}
+\end{align}}%
+donde, para obtener la desigualdad en la penúltima fila se ha usado lo estipulado en \eqref{lab.201}, pues, \(u \geq w_0\). Luego, dado que \(\overline{P}_{\xi,a(u)}\) es la cola de una distribución generalizada de Pareto, entonces, \(\abs{\overline{P}_{\xi,a(u)}(x)} \leq 1\) para cada \(x \in (0, \infty)\), por lo cual, se satisface que 
+\[
+\abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)} \leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)}, 
+\]
+para cada \(x \in (0, \infty)\). Por ende, de la desigualdad anterior se concluye que 
+\[
+\sup_{x \in (0, \infty)}\corch{\abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)}} \leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)}.
+\]
+Así, de la desigualdad previa y de la desigualdad en \eqref{lab.2000} se sigue para \(m \in \NN\) y \(u \geq w_0\) arbitrarias, que  
+\[
+\sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}\leq \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)} + \frac{\ee}{2}.
+\]
+Ahora, observe que la desigualdad precedente implica que
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}  > \ee} \subseteq  \kis{\frac{\ee}{2} +\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}>\ee},
+\]
+}%
+o, equivalentemente
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}  > \ee} \subseteq  \kis{\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}> \frac{\ee}{2}},
+\]
+}%
+Por lo cual, dada la monotonía de las medidas de probabilidad, se obtiene que
+{\tiny 
+\begin{equation*}
+    \PP\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}  > \ee} \leq  \PP\kis{\sup_{x \in (0, \infty)}\abs{\lambda t \overline{F}(u)\overline{P}_{\xi,a(u)}(x)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}> \frac{\ee}{2}}. 
+\end{equation*}
+}
+Luego, de la arbitrariedad \(m \in \NN\) se concluye de la desigualdad anterior que 
+{\tiny 
+\begin{equation*}
+  0\leq   \PP\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F_t}(x + u) -  \pare{1 - \exp\corch{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}}  > \ee}  \leq \PP \kis{ \abs{\lambda t \overline{F}(u)-  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)} > \frac{\ee}{2} }, \text{ para cada }m \in \NN.
+\end{equation*}
+}
+con \(u \geq w_0\) arbitraria. Finalmente, procediendo de manera análoga a como se hizo de \eqref{lab.111} a \eqref{lab.1111}, es posible concluir de la desigualdad anterior que: Para cada \(u \geq w_0\) se cumple que  
+ \[
+\PP\kis{ \sup_{x \in (0, \infty)}\abs{\overline{F}_{t}(x + u) - \pare{1-\exp\kis{- \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(x)}}} > \ee}\to 0, \text{ cuando } m \to \infty.
+\]
+Con lo que, se ha demostrado la segunda afirmación de este Lema.
+\end{proof}
+Teniendo a la mano la herramienta necesaria, se comenzará con la resolución del inciso \textbf{b)} de este ejercicio.\\
+
+\newpage
+\textbf{b)}
+\begin{solucion}
+Para este inciso, se tomarán en cuenta los datos contenidos en la base danishuni, los cuales se presentan en el Cuadro \ref{tab:1}:\footnote{Para ver los datos al completo, revisar el script 'Ej3.R' adjunto a este trabajo.}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+        Fecha &  Monto de Reclamo\\
+        \midrule          
+     1980-01-03& 1.684\\
+ 1980-01-04 &2.094\\
+ 1980-01-05& 1.733\\
+        \(\vdots\)& \(\vdots\)\\
+1990-12-30& 4.868\\
+ 1990-12-30& 1.073\\
+1990-12-31& 4.125\\   
+        \end{tabular}
+        \caption{Base de datos de reclamaciones con fechas en que ocurrieron y montos reclamados.}
+        \label{tab:1}
+\end{table}
+Se comenta de manera adicional que, para la realización del siguiente análisis se considerara que los montos de  reclamaciones en la tabla anterior, son independientes unos de otros, además, se supondrá que las reclamaciones llegan de acuerdo a un proceso de Poisson \(N = \kis{N(t): t \geq 0}\)  de intensidad \(\lambda\), el cual es independiente de los montos de los reclamos. Con este contexto en mente, el objetivo de este ejercicio será el de estimar \(\PP[M_{N(t)} > 10
+] = F_t(10)\) para diversos valores de \(t\). Ahora, note que el Lema \ref{lem.2} nos da dos maneras distintas de aproximar dichas probabilidades, bajo ciertos supuestos sobre la función de distribución \(F\) de los montos de reclamaciones. De este modo, para poder hacer uso de dicho Lema, el primer supuesto que se debe validar es que la función de distribución \(F\) de los montos de reclamación posee de extremo derecho infinito, para ello, se deja una gráfica de los de datos de reclamaciones en la Figura \ref{fig:1}. Note que, al observar dicha gráfica se puede comenzar a sospechar de que la función de distribución de estos datos posee extremo derecho infinito, pues, en la esquina superior izquierda de la misma existe un monto de reclamación que supera por mucho a la mayoría de los demás montos de reclamación, además, en la parte media de la gráfica hacia el lado derecho de la misma, también existen montos de reclamaciones que superan de manera considerable a la mayoría de los datos. Para ver esto de manera más analítica se obtuvo en \(R\) el siguiente resumen para los montos de reclamaciones:
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+        \(Min\)&  \(1rst Quar.\)&  \(Mediana\)&  \(Media\)&  \(3er Quart\)& \(Max\)\\ 
+        \midrule            
+          1.000 & 1.321&   1.778&  3.385&   2.967& 263.250\\
+        \end{tabular} 
+        \caption{Resumen de los datos de reclamaciones: En el siguiente orden se presentan el mínimo, el primer cuartil, la mediana, la media, el tercer cuartil y el máximo de los datos de montos de reclamaciones de la Tabla \ref{tab:1}.}
+        \label{tab:2}
+\end{table}
+Observe que, la diferencia entre el reclamo más grande y la mediana o el promedio de los datos de montos de reclamaciones, es enorme, lo que refuerza el análisis gráfico comentado previamente.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{data.png}
+    \caption{Gráfica de los Datos de reclamaciones en la base dashuni.}
+    \label{fig:1}
+\end{figure}
+Ahora, en la Figura \ref{fig:2} puede observar un gráfico con la función de exceso promedio empírica, para los montos de reclamaciones. En dicha gráfica, se observa el comportamiento asintótico característico de la función de exceso promedio de una distribución con cola pesada,\footnote{Cuando dicho comportamiento puede ser caracterizado, pues, existen distribuciones de cola pesada para las cuales su función de exceso promedio no posee un límite en infinito.} pues, para valores de \(u\) en un rango aproximado de \([0,60]\), la función de exceso promedio empírica parece crecer sin control hacía infinito, por otro lado, los picos después de este punto pueden ser atribuidos a la baja proporción de excedencias que existe para valores de \(u\) mayores a \(60\), ya que, la proporción de reclamos que se encuentran por arriba de \(60\) es del \(.1846\%\). Así, se tiene otro indicador que nos permite decir que, cuando menos, no existe evidencia en contra hasta este punto sobre la posibilidad de que el extremo derecho de la distribución de los montos de reclamos sea infinito, pues, la gráfica de la función de exceso promedio empírica apunta hacia la posibilidad de que la distribución de los montos de reclamaciones posea cola pesada.  
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{FEMinfty.png}
+    \caption{Gráfica de la función de exceso promedio empírica para los reclamos.}
+    \label{fig:2}
+\end{figure}
+Finalmente, se hizo una gráfica del cociente de la función de exceso promedio empírica de los datos entre la función identidad, dicha gráfica será de ayuda para intentar validar los dos supuestos en el Lema \ref{lem.2} sobre la función de distribución de los montos de reclamaciones. La gráfica de este cociente puede verse en la Figura \ref{fig:3}, como puede observar dicha gráfica parece estabilizarse en un rango de valores de \(u\) entre \([0,60]\) lo cual no es ninguna sorpresa, por lo comentado con anterioridad acerca de la proporción de excedencias sobre este umbral.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{Cociente FEM.png}
+    \caption{Gráfica del cociente de la función de exceso promedio para los reclamos.}
+    \label{fig:3}
+\end{figure}
+Por ende, en la gráfica presentada en la Figura \ref{fig:4} se hizo un acercamiento a la gráfica presentada en la figura \ref{fig:3} para valores de \(u\) entre \(0\) y \(60\). Como puede ver, el cociente de la función de exceso promedio de los datos entre la función identidad, parece comportarse de una manera bastante estable en una franja de valores entre \(1\) y \(2\), por lo que, no pareciera que dicho cociente vaya a converger de ninguna manera a cero, de hecho, a la vista parece mucho más posible que dicho cociente converja a una valor entre \(1\) y \(2\). Esto apunta a que, si la distribución de los reclamos pertenece a algún dominio de atracción, el único al que podría pertenecer es al dominio Fréchet o, equivalentemente al dominio \(D(H_{\xi,a,b})\) con \(\xi,a >0\) y \(b \in \RR\), pues, bajo esta gráfica es el único que no presenta evidencias en contra, pues, si la distribución de los montos de reclamación fuese parte del dominio Gumbel o Weibull, se esperaría ver un comportamiento decreciente hacia cero del cociente de la función de exceso promedio empírica de los datos. Por ende, este es otro indicio de que no hay evidencia en contra de que la distribución de los reclamos posee extremo derecho infinito, pues, si pertenece a algún domino de atracción el único posible es el dominio Fréchet, por lo que, la función de distribución de los reclamos debería tener cola de variación regular con algún índice \(\alpha >0\), lo que implica que la misma tiene cola pesada y no puede tener extremo derecho finito. Finalmente, se dijo con anterioridad que la gráfica en la Figura \ref{fig:4} también ayudaría a validar, el segundo supuesto solicitado por el Lema \ref{lem.2} para la función de distribución \(F\) de las reclamaciones, que es que la función de distribución \(F\) de los montos de reclamación, cumpla la relación asintótica
+\begin{equation}\label{asin}
+    \overline{F}(x + u) \approxu \overline{F}(u)\overline{P}_{\xi,a(u)}(x). 
+\end{equation}
+Para ello, recuerde que por el Corolario 3.1 de las notas de clase, se sabe que \(F\) satisface la relación asintótica anterior si \(F \in D(H_{\xi, a,b})\) para alguna combinación de parámetros \(\xi,b \in \RR\) y \(a > 0\), pero como ya se comento previamente, la gráfica en la Figura \ref{fig:4} no parece arrojar evidencia en contra de que \(F \in D(H_{\xi,a, b})\) para alguna \(\xi >0\), por lo cual, no hay evidencia en contra de suponer que \(F\) cumple la relación asintótica en \eqref{asin}.   
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{Cociente FEMcerca.png}
+    \caption{Acercamiento en la gráfica en la Figura \ref{fig:3}.}
+    \label{fig:4}
+\end{figure}
+
+
+De este modo, se procedió a ajustar una distribución generalizada de Pareto a los datos de reclamaciones en \ref{tab:1}. Para ello, será importante notar que se tienen \(2167\) datos de reclamaciones, es decir, se cuenta con un conjunto de \(2167\) observaciones de variables aleatorias con distribución \(F\), con las cuales se cálculo el valor de la cola empírica de la muestra en \(9.5\), en notación \(\overline{F}_{2167}(9.5)\), lo que arrojo un valor de \(0.0507\) dicho porcentaje correponde a las \(110\) observaciones que exceden este umbral. Ahora, esto se hizo pues se quiere aplicar el método de exceso sobre un umbral, para estimar \(\overline{F}_{t}(10)\) mediante la relación de proporcionalidad asintótica:
+\[
+\overline{F}_{t}(x + u) \approxu \lambda t \overline{F}(x), \text{ cuando } x \to \infty = \omega_F,
+\]
+probada en el Lema \ref{lem.1}, empleando los resultados presentados en el Lema \ref{lem.2}. Y, para aplicar este método existe la recomendación empírica de que el parámetro \(u\) debe ser elegido de tal suerte que \(\overline{F}_{2167}(u) \in [0.01, 0.05]\) cuando esto sea posible, no obstante, para poder cumplir este objetivo se debe seleccionar un parámetro de umbral al menos más grande que \(9.5\), lo cual, podría no ser útil para estimar el valor deseado. Por ende, se considero elegir el parámetro de umbral en un rango de \([8,9.5]\). Luego, para llevar a cabo dicha selección se hizo uso de la función \(gpd.fitrange\) del paquete \(ismev\), con la cual se obtuvo el gráfico presentado en la Figura \ref{fig:6}, en la parte inferior de este gráfico puede ver la estimación del parámetro de forma de la distribución Pareto generalizada que se busca ajustar a los datos, al variar el parámetro de umbral en un intervalo de valores de \([0.01,0.05]\). De este modo, note que la estimación del parámetro de forma parece comportarse de manera estable, para valores del parámetro de umbral que se encuentran entre \(8\) y \(8.5\), por lo cual, se eligió como umbral \(u\) al punto medio de este intervalo de valores, es decir, se eligió un umbral de \(u = 8.25\).\footnote{Adicionalmente, la cola empírica de los datos de reclamaciones evaluada en \(8.25\) tiene un valor de \(0.0595\), con lo que, el valor de la cola empírica de los datos en el umbral elegido esta próximo al rango de \([0.01, 0.05]\), sugerido empíricamente para la elección del umbral.} 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{Umbral.png}
+    \caption{Elección del Umbral \(u\) para la distribución de Pareto Generalizada a ajustar por ismev.}
+    \label{fig:6}
+\end{figure}
+Ahora, habiendo seleccionado el valor del umbral se hizo uso de la función \(gpd.fit\) y el valor del umbral seleccionado, para ajustar una distribución generalizada de Pareto a los datos de montos reclamaciones que exceden dicho umbral, lo que arrojo los siguientes estimadores máximo verosímiles para los parámetros del modelo
+\begin{equation}\label{params}
+    \Matrix{\text{escala=a(u)=} 7.5501 & \text{forma = \(\xi\)= } 0.5213}.
+\end{equation}
+Habiendo hecho el ajuste, se procedió ha realizar pruebas gráficas sobre el mismo empleando la función \(gpd.diag\), con la cual se obtuvieron las gráficas mostradas en la Figura \ref{fig:7}. A modo de resumen, las gráficas de izquierda a derecha en la primera fila de la Figura \ref{fig:7}, corresponden a una gráfica \(PP\) y a una gráfica \(QQ\) para evaluar el ajuste del modelo Pareto generalizado ajustado, mientras que, la gráfica en la esquina inferior derecha corresponde a un histograma de los datos de montos de reclamaciones que exceden el umbral seleccionado, al que se le encimo la densidad de la distribución ajustada. Ahora, como puede ver la gráfica \(QQ\) nuevamente parece mostrar un ajuste pobre del modelo a los datos, no obstante, como no es posible rechazar la hipótesis de que los datos provengan de una distribución que pertenece al dominio de atracción Frechét, entonces, el comportamiento de la \(QQ\) puede deberse a que muy posiblemente la distribución de los datos posee cola pesada. Esta idea parece verse reforzada al mirar la gráfica \(PP\) en la que se ve un ajuste mucho más razonable del modelo a los datos, finalmente, el histograma con la densidad estimada tampoco parece mostrar discrepancias importantes.  
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{diaggg.png}
+    \caption{Gráficas de diagnóstico para el ajuste Pareto.}
+    \label{fig:7}
+\end{figure}
+Ahora, para usar los resultados asintóticos enunciados en el Lema \eqref{lem.2}, se debe tener una muestra aleatoria de observaciones Poisson del mismo parámetro, que el parámetro de intensidad del proceso Poisson que describe las llegadas de las reclamaciones a la compañía. De este modo, para obtener dicha muestra aleatoria recuerde que los incrementos en intervalos disjuntos del proceso de Poisson que describe la llegada de reclamaciones, son independientes entre ellos, por lo que,  se cumple que: 
+\[
+N(t + 1) - N(t) \sim \text{Poisson}(\lambda), \text{ para } t \in \NN \cup\kis{0},
+\]
+Así, por la escala en que se esta manejando el tiempo, note que para \(t\in \NN \cup \kis{0}\) se cumple que \(N(t+1) - N(t)\) es el número de reclamaciones que llega a la compañía exactamente en el día \(t\). Lo anterior implica que,\footnote{Por el supuesto de que las reclamaciones llegan a la compañía de acuerdo a un proceso de Poisson de intensidad \(\lambda\).} el número de reclamaciones que arriban a la compañía cada día son independientes y poseen distribución Poisson\((\lambda)\). De este modo, el número de reclamaciones observadas por día con las que se cuenta en la base de datos, son una muestra aleatoria de una distribución Poisson\((\lambda )\), las cuales se usaran para estimar el parámetro de intensidad \(\lambda\) del proceso. Con esto en mente, se deja en el Cuadro \ref{tab:3} una tabla con el número de reclamaciones registradas en los diversos días. Cabe destacar que, en la base de datos existen días en los que no hay registro de montos de reclamaciones, por lo que, a dichos días se les considero como días sin reclamaciones y se agrego un conteo de cero a los mismos:\footnote{Los datos al completo pueden ser consultados en el script adjunto.}
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+        Fecha &  Monto Máximo de Reclamo\\
+        \midrule          
+        1980-01-03&        1\\
+        1980-01-04&        1\\
+        1980-01-05&        1\\
+      \(\vdots\)& \(\vdots\)\\
+       1990-12-29&        0\\
+       1990-12-30&        3\\
+       1990-12-31&        1\\
+        \end{tabular}
+        \caption{Número de reclamos llegados a la compañía por día.}
+        \label{tab:3}
+\end{table}
+Así, se cuenta con una muestra aleatoria de una distribución Poisson(\(\lambda\)) de tamaño \(4016\), con la que se estimo el parámetro de intensidad \(\lambda\) como el valor medio de dicha muestra o, en notación del Lema \ref{lem.2}
+\begin{equation}\label{lab.int}
+  \hat{\lambda}^{4016} = PromedioColumna2Tabla\ref{tab:3} = 0.53959.
+\end{equation}
+Por otro lado, anteriormente se había dicho que la cola empírica de la distribución de los montos de reclamos, evaluada en el umbral \(u = 8.25\) elegido, tenia un valor de
+\[
+\overline{F}_{2167}(u) = 0.0595.
+\]
+Así, tomando \(m = 2167\) y \(k = 1849\) en la aproximación del Lema \ref{lem.2}, entonces, es posible aproximar \(F_{t}(10)\) para \(t \in (0,210)\) como:\footnote{Donde, el signo \(\approx\) se debe interpretar en el sentido de las aproximaciones en el Lema \ref{lem.2}.}
+\begin{align}
+    F_{t}(10) = F_{t}(u + 1.75) &\approx  \hat{\lambda}^{(m+k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(1.75) \nonumber\\ 
+    F_{t}(10) = F_{t}(u + 1.75) &\approx   1-\exp\kis{- \hat{\lambda}^{(m + k)} t \overline{F}_{m}(u)\overline{P}_{\xi,a(u)}(1.75)}. \label{lab.pprox}
+\end{align}
+Haciendo uso de estas aproximaciones, se construyo el gráfico presentado en la figura \ref{fig:8}. Ahora, la linea en color rojo corresponde a la aproximación obtenida con la primer aproximación en \eqref{lab.pprox}, cabe destacar que en cierto punto dicha aproximación excede uno, por lo que, a partir de dicho punto se trunco la misma en el valor de \(1\). Por otro lado, la aproximación en azul corresponde a la realizada empleando la aproximación referida en \ref{lab.pprox}, esta última aproximación posee la ventaja de nunca sobrepasar el valor de \(1\). Como comentarios finales, observe que a pesar de que estas aproximaciones discrepan en la parte media de la distribución, ambas son muy parecidas a los extremos. 
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{Plot.png}
+    \caption{Estimación de la probabilidad \(\PP[M_{N(t)} > 10] =F_{t}(10)\) para valores de \(t\) en \([0,100]\). En linea roja se muestra la primer aproximación propuesta en \eqref{lab.pprox}, mientras que, en lineal azul se muestra la segunda aproximación propuesta en \eqref{lab.pprox}.}
+    \label{fig:8}
+\end{figure}
+\end{solucion}
+\newpage
+\textbf{c)}
+\begin{solucion}
+Para validar el supuesto de que $N=\{N(t), t\geq 0\}$ es un proceso Poisson de intensidad \(\lambda > 0\), se vera que no hay evidencia en contra del hecho de que el número reclamaciones diarias, (datos en el Cuadro \ref{tab:3}), son independientes entre si y siguen una distribución Poisson de parámetro \(\lambda >0\), pues como se comento en el inciso anterior si \(N\) es un proceso de Poisson de intensidad \(\lambda\), entonces, el número de reclamaciones diarios deberían ser observaciones independientes, provenientes de una distribución Poisson de parámetro \(\lambda\). Con este objetivo, se utilizará la prueba \(\chi^2\) de Pearson, vista en la ayudantía 7, que  mide la discrepancia entre una distribución observada y otra teórica. La estadística que utilizaremos es la siguiente
+\[\chi^2=\sum_{i}\frac{(\text{observación}_i-\text{teórica}_i)^2}{\text{teórica}_i},\]
+la cual de acuerdo a la Proposición A6.2 converge en distribución a una $\chi^2$ con $k - p - 1$ grados de libertad, siendo $k$ el número de clases y $p$ el número de parámetros desconocidos en nuestro modelo. Ahora, los conteos de los reclamos que se tienen se pueden ver en la Figura \ref{c.1}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.6\textwidth]{Eje3c.png}
+\caption{Conteos de reclamaciones de la base de datos “danishuni”.}
+\label{c.1}
+\end{figure}
+Dado lo anterior divideremos los conteos en 4 clases,\footnote{Pues, hay muy pocos conteos iguales a \(4\) y \(5\).} que se pueden apreciar en la siguiente tabla
+\begin{center}
+\begin{tabular}{| c | c | c | c |c | }
+\hline
+Conteos & 0 & 1 & 2 & 3$\geq$ \\ \hline
+Observados &  2371 &1219  &343 &  83 \\
+ \hline
+\end{tabular}
+\end{center}
+Para obtener las frecuencias estimadas, se utilizó una distribución Poisson con el parámetro estimado $\hat{\lambda}^{(m+k)}$ como el promedio de las observaciones dadas en (\ref{lab.int}), con un tamaño de muestra de $m+k=4016$, así, las frecuencias estimadas se obtuvieron como $(m+k)\PP(X=i)$, donde $X\sim Poiss(\hat{\lambda}^{(m+k)})$, e $i=0,1,2$ y para la última clase $(m+k)(1-\PP(X=2))$. Por último en la tabla siguiente se puede observar las frecuencias observadas, las estimadas y la discrepancia que existe entre ellas:
+\begin{center}
+
+\begin{tabular}{| c | c | c | c |c | }
+\hline
+Conteos & 0 & 1 & 2 & 3$\geq$ \\ \hline
+Observados &  2371 &1219  &343 &  83 \\
+Esperados &   2341.27& 1263.33& 340.84&70.55 \\
+Discrepancia &   0.374 & 1.555& 0.0136 &2.195 \\
+ \hline
+\end{tabular}
+    
+\end{center}
+Notemos que las frecuencias esperadas y estimadas son bastante cercanas, por último aplicamos el test de la $\chi^2$,  la estadística  $\chi^2$ tiene $2$ grados de libertad. El valor de la estadística $\chi^2=4.14$.
+Y en este caso
+\[\mathbb{P}(\chi^2 > 4.14) = 0.126\]
+De esta manera, recordando que la hipótesis nula \(\mathcal{H}_0\) de esta prueba es que los datos en el Cuadro \eqref{tab:3} son observaciones independientes de una distribución Poisson con parámetro \(\lambda\), se concluye que, bajo un nivel de significancia del \(5\%\) no hay evidencia contra el supuesto de que los reclamos sigan una distribución Poisson\((\lambda)\) y sean independientes entre ellos. De este modo, por lo comentado al inicio de este inciso es posible concluir que tampoco existe evidencia en contra el supuesto de que $N$ es un proceso Poisson.
+\end{solucion}
+\section{Anexo Ej.3}\label{Ane.3}
+Se probará que la función \(f:[0,\infty) \to (0,1]\) con regla de correspondencia \(f(x) = e^{-x}\), es Lipshitz continua con constante de Lipshitz \(M = 1\). Con este objetivo, recuerde que 
+\begin{equation}\label{ane.1}
+e^{a} \geq 1 + a, \text{ para cada } a \in \RR.    
+\end{equation}
+De este modo, tome \(x , y \in [0,\infty)\) y suponga primeramente que \(x \leq y\), entonces  
+\begin{align*}
+    \abs{e^{-x} - e^{-y}} = e^{-x} - e^{-y} &=  e^{-x}(1 - e^{x-y})\\ 
+                                            &\leq e^{-x}(1- (1 + (\abs{x} - \abs{y})))\\ 
+                                            &= e^{-x}(\abs{y} - \abs{x}) \\
+                                            &\leq \abs{y} - \abs{x} \leq \abs{\abs{y} - \abs{x}} \leq \abs{x - y}.
+\end{align*}
+donde, la primer desigualdad en el primer renglón se da pues \(f\) es decreciente en \([0,\infty)\), mientras que, para la desigualdad en el segundo renglón se hizo uso de \eqref{ane.1}. Por otra parte, mediante un procedimiento análogo se obtiene la desigualdad
+\[
+ \abs{e^{-x} - e^{-y}} \leq \abs{x - y},
+\]
+cuando \(y < x\). De esta forma, se concluye que 
+\[
+\abs{f(x) - f(y)} \leq \abs{x -y}, \text{ para cada } x,y\in[0,\infty).
+\]
+Lo que prueba el resultado deseado. 
+
+\end{document}
+
+
+\begin{comment}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{AJusteMax.png}
+    \caption{Ajuste de la distribución generalizada de valores extremos a los máximos de reclamaciones por día.}
+    \label{fig:5}
+\end{figure}
+No obstante, para no quedarnos únicamente con la prueba gráfica, proporcionada por el cociente de la función de exceso promedio empírica sobre la función identidad, se obtuvieron en \(R\) los máximos de los reclamos hechos en cada fecha en la que hubo al menos un reclamo, dichos máximos se presentan en el Cuadro \ref{tab:2}:
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+        Fecha &  Monto Máximo de Reclamo\\
+        \midrule          
+      1980-01-03&  1.68\\
+      1980-01-04&  2.09\\
+      1980-01-05&  1.73\\
+      \(\vdots\)& \(\vdots\)\\
+      1990-12-27&  1.11\\
+      1990-12-30&  4.87\\
+      1990-12-31&  4.13\\ 
+        \end{tabular}
+        \caption{Monto de reclamo máximo por fecha.}
+        \label{tab:2}
+\end{table}
+
+
+Luego, a estos datos se les ajusto, con el uso de la librería ismev de \(R\), una distribución generalizada de valores extremos arrojando los siguiente valores para los  estimadores de máxima verosimilitud, para los parámetros del modelo ajustado.
+\[
+\Matrix{\text{loc: }1.6077& \text{escala: }0.7291&\text{forma: } 0.9130}.
+\]
+Como puede observar, el parámetro de forma estimado por máxima verosimilitud es mayor a \(0\), lo que indica que el modelo ajustado corresponde a una distribución Fréchet, además, se tiene que dicho parámetro es menor a uno, lo que nos permite asegurar que la distribución Frechet ajustada posee valor esperado finito, ahora, ¿qué tan bueno es el ajuste de este modelo a los datos? Pues, para responder a esta interrogante se deja en la Figura \ref{fig:5} las gráficas de diagnóstico correspondientes al ajuste realizado. En forma resumida, las gráficas de izquierda a derecha en la primera fila de la Figura \ref{fig:5}, corresponden a una gráfica \(PP\) y a una gráfica \(QQ\) para evaluar el ajuste de la distribución generalizada de valores extremos ajustada, mientras que la gráfica en la esquina inferior derecha, corresponde a un histograma de los datos de máximos por fecha, al que se le encimo la densidad de la distribución ajustada. Como puede observar, la gráfica \(QQ\) parece indicar un mal ajuste del modelo a los datos, sin embargo, en clase se nos dijo que esto suele ocurrir con esta gráfica cuando la distribución de los datos posee cola pesada, lo cual muy posiblemente es nuestro caso por lo comentado con anterioridad, adicionalmente, esta idea se ve reforzada al ver la correspondiente gráfica \(PP\) pues, en ella se observa un ajuste más que razonable de la distribución ajustada a los datos de máximos. Por otro lado, el histograma con la densidad encimada también parece indicar, al menos de manera visual, un buen ajuste a los datos de la distribución Frechet con los parámetros de máxima verosimilitud estimados. Así, del análisis del cociente de la función de exceso promedio y el ajuste realizado, se concluye que no existe evidencia en contra de que los montos de reclamaciones, provengan de una distribución en el dominio Fréchet o equivalentemente, en el dominio \(D(H_{\xi,a,b})\) para alguna combinación de parámetros \(\xi,a > 0\) y \(b \in \RR\),
+\end{comment}

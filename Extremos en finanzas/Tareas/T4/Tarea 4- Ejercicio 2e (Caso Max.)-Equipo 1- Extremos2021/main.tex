@@ -1,0 +1,451 @@
+%Tarea 4,Extremos 
+%Ejercicio 2e
+% Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel 
+% Mestría en Probabilidad y Estadística.
+\documentclass[10.5pt,notitlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}       
+\usepackage{enumitem}   
+\usepackage{enumerate}
+\usepackage{verbatim} 
+\usepackage{bbm}
+\usepackage[backend=biber,style=apa]{biblatex}
+\usepackage{csquotes}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\urlstyle{same}
+\addbibresource{refer.bib}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\usepackage{makecell}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\newenvironment{solucion}
+  {\begin{proof}[Solución]}
+  {\end{proof}}
+\pagestyle{plain}
+\usepackage{pdflscape}
+\usepackage[table, dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage[bottom]{footmisc}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{placeins}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Jj}{\mathcal{J}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\oo}{\varnothing}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\lL}{\mathrm{L}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\toPP}{\overset{\PP}{\to}}
+\newcommand{\toCS}{\overset{\mathrm{c.s.}}{\to}}
+\newcommand{\toL}{\overset{\mathrm{L}_1}{\to}}
+\newcommand{\todis}{\overset{\mathrm{d}}{\to}}
+\newcommand{\approxu}{\overset{u}{\approx}}
+\newcommand{\igualD}{\overset{d}{=}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\corch}[1]{\left[ #1 \right]}
+\newcommand{\kis}[1]{\left\{ #1 \right\}}
+\newcommand{\pare}[1]{\left( #1 \right)}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\Matrix}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+
+\theoremstyle{plain}
+
+\newtheorem{thm}{Teorema}[section] % reset theorem numbering for each chapter
+\newtheorem{defn}[thm]{Definición} % definition numbers are dependent on theorem numbers
+\newtheorem{lem}[thm]{Lema} % same for example numbers
+\newtheorem{remarkex}{Observación}
+\newenvironment{rem}
+  {\pushQED{\qed}\renewcommand{\qedsymbol}{$\triangle$}\remarkex}
+  {\popQED\endremarkex}
+
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{etoolbox}
+\usepackage{fancybox}
+
+\newenvironment{myleftbar}{%
+\def\FrameCommand{\hspace{0.6em}\vrule width 2pt\hspace{0.6em}}%
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\declaretheoremstyle[
+spaceabove=6pt,
+spacebelow=6pt
+headfont=\normalfont\bfseries,
+headpunct={} ,
+headformat={\cornersize*{2pt}\ovalbox{\NAME~\NUMBER\ifstrequal{\NOTE}{}{\relax}{\NOTE}:}},
+bodyfont=\normalfont,
+]{exobreak}
+
+\declaretheorem[style=exobreak, name=Ejercicio,%
+postheadhook=\leavevmode\myleftbar, %
+prefoothook = \endmyleftbar]{exo}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\title{Examen Parcial 1, Extremos \\
+Ejercicio 1\\
+Rojas Gutiérrez Rodolfo Emmanuel\\ 
+Maestría en Probabilidad y Estadística.}
+
+\author{}
+\begin{document}
+\begin{flushleft}
+Tarea 4, Extremos.\\
+Ejercicio 2e: Caso Temperaturas máximas.\\   
+Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel.\\
+Maestría en Probabilidad y Estadística.
+\end{flushleft}
+
+\section{Ejercicio 2e): Caso Temperaturas máximas.}
+\setcounter{exo}{1}
+\begin{exo}
+\item Los archivos 'max1900-2021' y 'min1900-2021' contienen datos de las temperaturas máxima y mínima (respectivamente) en Albania, desde 1900 hasta 2021. Supón que puedes considerar todos estos datos independientes.
+\begin{itemize}
+\item[a)] Agrupa los datos por mes (esto generará 12 bases de datos) e identifica los valores máximos y mínimos de cada mes. En cada caso, estima los extremos de interés de las distribuciones de cada base de datos, según la metodología vista en la ayudantía.
+
+\item[b)] Halla los periodos de retorno para cada uno de los valores del inciso anterior utilizando el método de excesos sobre un umbral y la DGVE. Posiblemente en algunos casos la teoría no justifique la validez del método, en cuyo caso deberías indicar por qué esto ocurre.
+
+\item[c)] Estima los valores de las temperaturas mínimas y máximas para noviembre y diciembre de 2021, de modo que los verdaderos valores de estas temperaturas no excedan los valores estimados con probabilidad al menos 0.95 y 0.99 (son dos casos por separado).
+
+\item[d)] Estima la probabilidad de que la suma promedio mensual sea inferior a la reportada en las bases de datos (una estimación para la temperatura mínima promedio y otra para la temperatura máxima promedio). Realiza esto utilizando el TLC (si aplica) y el método de excesos sobre un umbral. En ambos casos, deberás ser lo más formal posible en cada estimación propuesta. \textbf{Nota}: las cotas ``cuentan'' como estimación, en este contexto.
+
+\item[e)]* Con la prueba de hipótesis del ejercicio anterior, prueba la hipótesis de que las 12 bases de datos (generadas en el numeral 1 de este ejercicio) provienen o no de la misma distribución. Si tienes evidencia de que algunos grupos de datos sí provienen de la misma distribución, repite los análisis agrupando todos en una misma base (indica las implicaciones sobre los errores tipo 1 y tipo 2 que tendrá repetir la prueba con nuevos grupos de datos).
+\end{itemize}
+\end{exo}
+
+\textbf{e)}
+\begin{solucion}
+Consideremos el siguiente contraste de hipótesis 
+\[H_0:i\; \text{muestras provienen de la misma distribución}\]\[ vs\]\[H_1:\text{al menos dos de tales muestras
+tienen distribuciones distintas},\] con $i=2,3,...,12$, fijaremos un nivel de significación $\alpha=0.05$, con el cuál decidiremos si rechazamos o no la hipótesis nula.
+Utilizando la prueba de $K$ muestras de Anderson-Darling se rechazó la hipótesis nula de que las 12 muestras(para mínimos y máximos) provengan de la misma distribución, donde se obtuvo un p-valor de cero. Se realizó además la misma prueba para ver si las combinaciones entre los grupos si puedan provenir de la misma distribución, en general vemos que no ocurre lo anterior salvo para algunos meses en particular, de los cuales se pueden en la Tabla \ref{tab:V1}, para consultar los p-valores de las otras pruebas se puede consultar el script anexado.
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+        Meses &  p-valor\\
+        \midrule          
+        Jan-Feb(Max)&        0.7074\\
+        May-Sep(Max)&        0.3369\\
+        Jun-Aug(Max)&        0.7286\\
+       Jan-Feb(Min)&        0.0570\\
+        \end{tabular}
+        \caption{P-valores de la prueba de hipótesis.}
+        \label{tab:V1}
+\end{table}
+
+Por lo tanto, para las muestras de los meses en el Cuadro \ref{tab:V1} no rechazamos la hipótesis nula de que las muestras provengan de una misma distribución. De esta forma, es razonable pensar que podemos agrupar los datos y repetir el análisis realizado en los incisos anteriores.\\
+El error tipo I se refiere a que rechazamos $H_0$ cuando no debíamos de hacerlo, las implicaciones para este tipo de error simplemente es que no agrupamos ciertas muestras de las que pudimos hacer un análisis conjunto en lugar de analizar el mes por separado. Por otra parte el error tipo II se refiere a que no rechazamos la hipótesis nula cuando debimos hacerlo, las consecuencias de este error podrían ser mas severas que en el pasado, ya que al suponer que podemos agrupar ciertos meses en un mismo conjunto de datos, cuando no es así, puede llevarnos a errores en el análisis así como en las estimaciones que se realizaron bajo ese supuesto.\\
+
+Dado lo anterior, se agruparon los meses indicados de la Tabla \ref{tab:V1}. De ahora en adelante nos referiremos como Grupo 1 a los meses de Enero y Febrero, Grupo 2 a los de Mayo y Septiembre y Grupo 3 a los meses Junio y Agosto y, por simplicidad, las distribuciones de estos grupos datos se denotadas por \(F_1, F_2\) y \(F_3\) respectivamente. 
+
+Ahora, en la Figura \ref{Ej2eFEP} observamos las gráficas FEP empíricas, estas gráficas corresponden de manera respectiva a los grupos 1, 2 y 3.\footnote{Esta lógica se seguirá de aquí en más, por lo que, es importante que la misma sea recordada.} De esta manera, vemos que las FEP empiricas de estos tres grupos presentan un comportamiento decreciente, por lo que, al igual que en el análisis de los meses por separado ninguna de las distribuciones \(F_i\), con \(i \in \kis{1,2,3}\) presenta evidencia en contra de poseer cola ligera. 
+
+Por otra parte, en la Figura \ref{Ej2eCFEP} puede ver gráficas del cociente Fep empírico de esto datos, en donde se observa que en los 3 grupos se preserva el comportamiento decreciente de la FEP empírica, más aún, parece que este comportamiento culmina con una convergencia a cero del cociente, no obstante, este efecto puede ser engañoso pues es posible que el mismo se estabilice previo a alcanzar el cero, por ende, en la Figura \ref{Ej2eCFEPZoom} se ha hecho un zoom a las gráficas de estos cocientes, en las que se observa que la tendencia decreciente parece continuar, por lo que, a juzgar por la escala en el eje \(y\) en que se presentan estás gráfica, no parece existir evidencia en contra de que las  distribuciones de los grupos puedan ser parte del dominio de atracción Weibull. Por lo que, para recabar más información sobre esta última hipótesis, se utilizará la relación de los dominios de atracción Weibull y Fréchet, para lo cual, primero se transformo los datos de cada grupo utilizando una transformación análoga a la realizada en el pdf anterior dada en la relación (1).
+
+Así, es posible ver en la Figura \ref{Ej2eFEPtrans}, la gráfica de la Fep empírica de los datos por grupos transformados, note que para los datos transformados de los primeros 2 grupos las Feps empíricas correspondientes, presentan una tendencia creciente bastante marcada, que se ve nublada por los picos que suelen formarse en este tipo de gráficos debido a la falta de excedencias. Con lo que, no existe bajo este criterio gráfico evidencia en contra de que la distribución de la misma provenga de una distribución con cola pesada, no obstante, la gráfica de la Fep empírica de los datos transformados del Grupo 3, presenta una tendencia decreciente en un inicio, la cual posteriormente crecer muy lentamente o incluso estabilizarse, esto puede parecer una señal alarmante, de no ser porque en la clase previa al examen, se vio un ejemplo con una distribución de Pareto cuyas observaciones generaban una Fep empírica, con un comportamiento similar al mostrado en este último gráfico, en el sentido de que la Fep empírica generada en ese caso, primero mostraba un comportamiento decreciente para luego crecer de manera muy lenta. Por ende, pese a que bajo este criterio gráfico, no existe evidencia en contra de que la distribución de los datos no pueda tener cola ligera, tampoco se debe descartar la posibilidad de la existencia de cola pesada.  
+
+Continuando con el análisis, es posible ver en la Figura \ref{ZEj2eCFEPtransZ} gráficas de los cocientes Fep empíricos de los datos de los grupos transformados. Note que, en general estos cocientes parecen estabilizarse en intervalos relativamente pequeños de valores positivos, por lo que, parecería que a la larga estos cociente pueden tender a un límite finito y positivo, por ende, bajo este criterio gráfico no hay evidencia en contra de que la distribución de los grupos pertenezca al dominio de atracción Weibull, pues, bajo este criterio gráfico las distribuciones de los datos de grupos transformados, no presentan evidencia en contra de su pertenencia al dominio de atracción Frechet. No obstante, es cierto que existe cierta duda con los datos del tercer grupo, por esta razón se ajustaron distribuciones generalizadas de Pareto a los conjuntos de datos agrupados,\footnote{Mediante el método de excesos sobre un umbral.} los umbrales seleccionados para llevar a cabo la metodología, los parámetros estimados para cada ajuste y las respectivas gráficas de bondad y ajuste, se muestran en la Figura \ref{Mon1DGP}. Ahora, las gráficas de bondad y ajuste para el tercer conjunto de datos, son aquellas que se encuentran al fondo de la Figura \ref{Mon1DGP}, en ella puede ver que el ajuste de la DGP a los datos de este grupo pese a no ser terrible tampoco es del todo óptimo, pese a que el parámetro de forma estimado para el ajuste es negativo, por lo que, nuevamente la distribución \(F_3\) presenta otro problema, que representa evidencia en contra de que la misma pueda pertenecer a algún dominio de atracción máximal, más aún, al ver la gráfica en el medio de la Figura \ref{Mon1DGP}, es claro que el ajuste de DGP a los datos de en el segundo grupo es pésimo, lo que es una clara evidencia en contra de que la distribución \(F_2\), pertenezca a algún dominio de atracción maximal. Esto puede deberse a que, en realidad los datos que se combinaron para formar estos grupos no provienen de una misma distribución. Por ende, para analizar si estos problemas siguen presentandose se actuará como si no hubiese toda esta evidencia en contra de la pertenencia de estos conjuntos de datos a algún dominio máximal, es decir, de acuerdo a que el único dominio posible al que estos datos pueden pertenecer es al Weibull y,\footnote{Solo al Weibull, porque inclusive en los ajustes hechos, los párametros de forma estimados siempre fueron negativos} bajo estas hipótesis se trabajara lo que resta del ejercicio con estos datos.
+
+Por otra parte, antes de empezar a comparar los resultados arrojados en estos datos, con los que sean comparables de los incisos pasados, también se analizaran los datos de los conjuntos agrupados pero cambiados de signo, para también poder hacer comparativas con estos conjuntos de datos. 
+Por ende, y para ser totalmente claros, de ahora en más haremos referencia como negativos del Grupo 1, a los datos de los negativos de los datos para los meses de Enero y Febrero, como negativos del Grupo 2 a los correspondientes negativos de los datos de Mayo y Septiembre y, como negativos del Grupo 3 al negativo de los datos de los meses Junio y Agosto, además de que por simplicidad, las distribuciones de estos grupos de datos serán denotadas por \(G_1, G_2\) y \(G_3\) respectivamente. 
+
+Ahora, en la Figura \ref{mEj2eFEP} observamos las gráficas FEP empíricas, estas gráficas corresponden de manera respectiva a los negativos de los grupos 1, 2 y 3.\footnote{Esta lógica se seguirá de aquí en más, por lo que, es importante que la misma sea recordada.} De esta manera, vemos que las FEP empíricas de estos tres grupos presentan un comportamiento decreciente, por lo que, al igual que en el análisis de los meses por separado ninguna de las distribuciones \(G_i\), con \(i \in \kis{1,2,3}\), presenta evidencia en contra de poseer cola ligera. 
+
+Por otra parte, en la Figura \ref{mEj2eCFEP} puede ver gráficas del cociente Fep empírico de esto datos, en donde se observa que en los 3 grupos se nota un patrón creciente de la FEP empírica que parece tender a cero, no obstante, este efecto puede ser engañoso pues es posible que el mismo se estabilice previo a alcanzar el cero, por ende, en la Figura \ref{mEj2eCFEPZoom} se ha hecho un zoom a las gráficas de estos cocientes, en las que se observa que la tendencia creciente parece continuar y, por lo que, a juzgar por la escala en el eje \(y\) en que se presentan estás gráfica, no parece existir evidencia en contra de que las distribuciones de los grupos puedan ser parte del dominio de atracción Weibull. De este modo, para recabar más información sobre esta última hipótesis, se utilizará la relación de los dominios de atracción Weibull y Fréchet, para lo cual, primero se transformo los datos de cada grupo utilizando una transformación análoga a la realizada en el pdf anterior dada en la relación (1).
+
+Así, es posible ver en la Figura \ref{mEj2eFEPtrans}, la gráfica de la Fep empírica de los datos por grupos transformados, note que para los datos transformados de los primeros 2 grupos las FEP's empíricas correspondientes, presentan una tendencia creciente bastante marcada, que se ve nublada por los picos que suelen formarse en este tipo de gráficos debido a la falta de excedencias. Con lo que, no existe bajo este criterio gráfico evidencia en contra de que la distribución de la misma provenga de una distribución con cola pesada, no obstante, la gráfica de la Fep empírica de los datos transformados del Grupo 3, presenta una tendencia decreciente en un inicio, para posteriormente crecer muy lentamente o incluso estabilizarse, esto puede parecer una señal alarmante, de no ser porque en la clase previa al examen, se vio un ejemplo con una distribución de Pareto cuyas observaciones generaban una Fep empírica, con un comportamiento similar al mostrado en este último gráfico, en el sentido de que la Fep empírica generada en ese caso, primero mostraba un comportamiento decreciente para luego crecer de manera muy lenta. Por ende, pese a que bajo este criterio gráfico, no existe evidencia en contra de que la distribución de los datos no pueda tener cola ligera, tampoco se debe descartar la posibilidad de la existencia de cola pesada.  
+
+Continuando con el análisis, es posible ver en la Figura \ref{mEj2eCFEPtrans} gráficas de los cocientes Fep empíricos de los datos de los grupos transformados. Note que, en general estos cocientes parecen estabilizarse en intervalos relativamente pequeños de valores positivos, por lo que, parecería que a la larga estos cociente pueden tender a un límite finito y positivo, por ende, bajo este criterio gráfico no hay evidencia en contra de que la distribución de los grupos pertenezca al dominio de atracción Weibull, pues, bajo este criterio gráfico las distribuciones de los datos de grupos transformados, no presentan evidencia en contra de su pertenencia al dominio de atracción Frechet. Sin embargo, es cierto que existe cierta duda con los datos del tercer grupo, lo cual no es de extrañar en este caso, pues, uno de los meses que conforma a este grupo es agosto, cuyos negativos de datos de temperaturas máximas no presentaban evidencia en contra de su no pertenencia a ningún dominio de atracción máximal. No obstante, se ajustaron distribuciones generalizadas de Pareto a los conjuntos de datos agrupados,\footnote{Mediante el método de excesos sobre un umbral.} los umbrales seleccionados para llevar a cabo la metodología, los parámetros estimados para cada ajuste y las respectivas gráficas de bondad y ajuste, se muestran en la Figura \ref{DGPneg}. Ahora, las gráficas de bondad y ajuste para el tercer conjunto de datos, son aquellas que se encuentran al fondo de la Figura \ref{DGPneg}, sorprendentemente en ella puede ver que el ajuste de la DGP a los datos de este grupo, parece cuando menos razonable para la poca cantidad de datos existente, además de que el parámetro de forma estimado para el ajuste es negativo. Por ende, pareciera que tampoco existen evidencias en contra, de la pertenencia de este ultimo bloque de datos al dominio de atracción Weibull. Observe que, esto también puede deberse a que estos datos no provienen en realidad de la misma distribución, por lo que, los datos de negativos de temperaturas máximas de Junio, podrían ser la causa de este último buen ajuste.
+
+Teniendo en mente, lo dicho en estos análisis se procerá a reproducir aquellos resultados que puedan ser comparable, con aquellos que fueron previamente presentados. \\
+
+\textbf{a)}
+Los valores máximos y mínimos de cada uno de los grupos formados, se presentan en la Tabla \ref{tab:e2}.
+\begin{table}[H]
+        \centering
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+     Grupo & Max Temp Max & Min Temp Max\\
+        \midrule         
+   1&73.877&34.134  \\            
+   2&100.040&74.842\\
+   3&102.026& 81.078\\ 
+
+        \end{tabular}
+        \caption{Máximos y mínimos históricos de temperaturas máximas de los grupos.}
+        \label{tab:e2}
+\end{table}
+Ahora, los negativos de los grupos de datos no presentaban evidencia en contra de su pertenencia al dominio Weibull, mientras que, solo un conjunto de datos agrupados originales no presentaba evidencia en contra de esto último, no obstante, para los otros dos conjuntos se dijo que, para fines comparativos, se actuaría como si no hubiese evidencia en contra de que los mismos, proviniesen del dominio de atracción Weibull. 
+
+
+De este modo, se empleo la metodología vista en la ayudantía, para determinar los extremos derechos de las distribuciones de estos grupos. La aplicación gráfica de esta metodología, puede verse en las Figuras \ref{ExtDerDGP} y \ref{mExtDerDGP}, cabe destacar que para la construcción de estas gráficas se uso un rango de valores $\{1, . . . , \floor{n^{0.8}}\}$, donde, $n = 244$ es el tamaño de cada grupo. Luego, en todas estas gráficas se puede ver una linea roja horizontal, dicha linea roja representa el promedio de todos los valores en la gráficas construidas, el cual se reporta la Tabla \ref{tab:33} como la estimación obtenida, para el extremo derecho que se indique, vía esta metodología.
+\begin{table}[H]
+        \centering
+        \scalebox{0.99}{
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+         &Grupo1&   Grupo2&   Grupo3\\
+        \midrule          
+       Extremo derecho&\(\omega_{F_1}\)&\(\omega_{F_2}\)&\(\omega_{F_3}\)\\
+       Estimación& 76.206 & 101.217&  103.124\\
+     Extremo derecho&\(\omega_{G_1}\)&\(\omega_{G_2}\)&\(\omega_{G_3}\)\\
+       Estimación&  -32.202& -73.616& -80.017\\
+        \end{tabular}}
+        \caption{Extremos derechos estimados, de temperaturas máximas en Albania por grupo.}
+        \label{tab:33}
+\end{table}	
+Note que, al comparar los resultados obtenidos para el Grupo 1, para el Grupo 2 y para el Grupo 3,\footnote{Tanto para datos positivos como negativos de estos grupos.} con las estimaciones para los respectivos extremos derechos, para los datos de los meses que conforman estos Grupos, ver Cuadro 3 del PDF anterior,\footnote{Primer columna del Cuadro \ref{tab:33}, comparable con las columnas para enero y febrero del Cuadro 3 (del PDF anterior). Segunda columna del Cuadro \ref{tab:33}, comparable con las columnas para mayo y es septiembre del Cuadro 3 del PDF anterior. Tercer columna del Cuadro \ref{tab:33}, comparable con las columnas para junio y agosto del Cuadro 3 del PDF anterior.} es posible notar que no existen discrepancias importantes en estas estimaciones. Pese a que, en al menos dos de los conjuntos combinados, hay un mes cuyos datos ya sean originales o negativos, no presentaban evidencia en contra a su no pertenencia a ningún dominio de atracción.
+
+
+\textbf{b)} Procediendo de manera similar que en el inciso b), se presentan las estimaciones para el periodo de retorno por el método de excesos sobre un umbral, a los máximos de cada conjunto agrupado. 
+\begin{table}[H]
+        \centering
+        \scalebox{0.99}{
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+         &Grupo1&   Grupo2&   Grupo3\\
+        \midrule          
+      Periodo retorno max.&\(L(73.877)\)&\(L(100.040)\)&\(L(102.026)\)\\
+      Estimación& 422.17 & 1351.117&  1458.759\\
+      Periodo retorno min.&\(L(-34.134)\)&\(L(-74.842)\)&\(L(-81.078)\)\\
+      Estimación& 1640.989 & 1088.188& 1365.887\\ 
+        \end{tabular}}
+        \caption{Periodos de retorno de temperaturas máximas en Albania por grupo.}
+        \label{tab:rete2}
+\end{table}	
+Así, al observar los valores presentados en el Cuadro \ref{tab:rete2} y compararlos, con los correspondientes valores de retorno individuales presentados en el Cuadro 4 del PDF anterior, 
+es posible notar que los periodos de retorno del primer grupo, son considerablemente mayores que el de los meses individuales (Enero y Febrero), sobre todo, en el caso del periodo al valor mínimo. Por otra parte, para el segundo y tercer grupo en el inciso b) del ejercicio no fue posible calcular el periodo de retorno máximo del mes de mayo, ni el mínimo del mes de agosto, por las razones dadas en el PDF anterior. No obstante, note que los periodos de retorno estimados en aquel inciso, para los meses de junio y septiembre y los valores que si pudieron calcularse para agosto y mayo, no son ni cercanamente parecidos a los obtenidos al mezclar los datos. Cabe destacar que, los grupos 2 y 3 de datos  fueron criticados fuertemente al inicio de este ejercicio, porque en el análisis sobre el posible dominio de pertenencia de los mismos, se arrojaban resultados algo inesperados y, se mencionó en estos análisis que una posible causa de esto, era el mezclar estos conjuntos siendo que en realidad no provenian de una misma distribución.\\
+
+Por otro lado, como mencionamos, para fines comparativos, se actuará como si no hubiese evidencia en contra de la pertenencia de los conjuntos de datos a algún dominio de atracción, por lo que se les ajusto con el comando \textit{gev.fit} una distribución generalizada de valores extremos (DGVE) a los grupos de datos y grupos de datos negativos, siguiendo el mismo procedimiento mencionado en el inciso b). De este modo, las estimaciones para los periodos de retorno de interés obtenidas de esta forma se presentan en el Cuadro \ref{tab:2rete2}.
+\begin{table}[H]
+        \centering
+        \scalebox{0.99}{
+        \begin{tabular}{@{}l@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{\hskip 0.3in}r@{}}
+        \toprule
+         &Grupo1&   Grupo2&   Grupo3\\
+        \midrule          
+      Periodo retorno max.&\(L(73.877)\)&\(L(100.040)\)&\(L(102.026)\)\\
+      Estimación&  275.89& 3193.837& 1027.635\\
+      Periodo retorno min.&\(L(-34.134)\)&\(L(-74.842)\)&\(L(-81.078)\)\\
+      Estimación& 2976.899 & 954.121&  1595.411\\ 
+        \end{tabular}}
+        \caption{Periodos de retorno de temperaturas máximas en Albania por grupo.}
+        \label{tab:2rete2}
+\end{table}	
+De esta manera, al observar los valores presentados en el Cuadro \ref{tab:2rete2} y compararlos, con los correspondientes valores de retorno individuales presentados en el Cuadro 5 del PDF anterior, es posible volver a ver este efecto de amplificación en los valores de los periodos de retorno.\footnote{Salvo quizás, para el periodo de retorno al máximo del grupo \(1\), comparado con los periodos de retorno individuales de enero y febrero.} 
+
+Como conclusión global de este inciso, se cree que es importante mencionar que, aunque por un lado los resultados para las mezclas de datos que conforman al grupo 2 y 3, eran de esperarse por los problemas que estos conjuntos poseen, si que sorprende que en el grupo 1, también existan diferencias en las estimaciones, sobre todo en la estimación del periodo de retorno a los valores mínimos, pues, nada apuntaba a que fuese una mala idea el combinar estos datos.\\
+
+c) Dado que noviembre y diciembre no entran en estas mezclas de datos, no hay forma de hacer comparaciones de estos incisos. \\
+
+
+d) Para este inciso, tampoco hay mucho que comentar, salvo que también es posible usar el TLC para aproximar las probabilidades de que los promedios teóricos, de variables aleatorias con funciones de distribución \(F_i\), con \(i = 1,2,3\), excedan el promedio empírico del Grupo \(i\), pues, por lo dicho en un inicio, no hay evidencia en contra de que estas distribuciones posean colas ligera, y por ende, no hay evidencia en contra de que posean funciones generadoras de momentos finitas, en alguna vecindad alrededor del cero. De este modo, todas la probabilidades estimadas con esta herramienta, en este caso también poseen  un valor igual a un medio. Más aún, las cotas obtenidas también son uno, por lo que, la comparación en este caso es inútil, pues los resultados son exactamente iguales, pero más por el contexto del problema que por la similitud de los datos.\\
+
+Como conclusión general, se quiere decir que si es posible evitar el agrupar datos se evite, no obstante, cuando esto no sea así, se recomienda agrupar siempre que sea bastante razonable dicho agrupamiento, por ejemplo, como en el caso del Grupo 1 presentado en este trabajo, pues esto puede ser una herramienta útil cuando se trabaja con bases de datos extensas.
+
+\end{solucion}
+
+
+
+
+\section{Anexo : Gráficas del ejercicio.}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Ej2eFEP.png}
+    \caption{FEP empírica de las muestras conjuntas de los meses}
+    \label{Ej2eFEP}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Ej2eCFEP.png}
+    \caption{Cociente FEP empírico de las muestras conjuntas de los meses}
+    \label{Ej2eCFEP}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Imagenes finales/Ej2eCFEPzoom.png}
+    \caption{Cociente FEP empírico de las muestras conjuntas de los meses}
+    \label{Ej2eCFEPZoom}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Imagenes finales/FEPPTra.png}
+    \caption{Fep empírica de las muestras conjuntas de datos transformados}
+    \label{Ej2eFEPtrans}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Ej2eCFEPtrans.png}
+    \caption{Cociente Fep empírico de las muestras conjuntas de datos transformados}
+    \label{ZEj2eCFEPtransZ}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.7]{Imagenes finales/AjustePareto.png}
+    \caption{Parámetros de la DGP Ajustada a Grupo 1 de datos originales \(\xi =-0.16\), \(a(u)=4.61\) y \(u = 60.3\). Parámetros de la DGP Ajustada a Grupo 2 de datos originales: \(\xi = -0.160\), \(a(u)=2.449\) y \(u = 92.25\).  Parámetros de la DGP Ajustada a Grupo 3 de datos originales: \(\xi =-0.342 \), \(a(u)=-2.460 \) y \(u = 96.2\).}
+    \label{Mon1DGP} 
+\end{figure}
+
+\begin{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5555Termina bondad y ajuste máximos de máximo inicia mínimos de máximos 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{.png}
+    \caption{FEP empírica de las muestras conjuntas de los meses. Datos negativos.}
+    \label{mEj2eFEP}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{}
+    \caption{Cociente FEP empírico de las muestras conjuntas de los meses. Datos negativos.}
+    \label{mEj2eCFEP}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{.png}
+    \caption{FEP empírico de las muestras conjuntas de los meses. Datos negativos.}
+    \label{mEj2eCFEPZoom}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{.png}
+    \caption{Cociente Fep empírico de las muestras conjuntas de datos transformados. Datos negativos.}
+    \label{mEj2eCFEPtrans}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{.png}
+    \caption{Parámetros de la DGP Ajustada a Grupo 1 de datos negativos \(\xi =-0.16\), \(a(u)=4.61\) y \(u = 60.3\). Parámetros de la DGP Ajustada a Grupo 2 de datos negativos: \(\xi = -0.160\), \(a(u)=2.449\) y \(u = 92.25\).  Parámetros de la DGP Ajustada a Grupo 3 de datos negativos: \(\xi =-0.342 \), \(a(u)=-2.460 \) y \(u = 96.2\). Datos negativos.}
+    \label{mMon1DGP} 
+\end{figure}
+\end{comment}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%datosnega
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Imagenes finales/FEPneg.png}
+    \caption{FEP's empíricas de los datos en negativo.}
+    \label{mEj2eFEP} 
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Imagenes finales/CFEPneg.png}
+    \caption{Cocientes FEP empíricos de los datos en negativo.}
+    \label{mEj2eCFEP} 
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Imagenes finales/CFEPnegzoom.png}
+    \caption{Cocientes FEP empíricos de los datos con Zoom negativo.}
+    \label{mEj2eCFEPZoom} 
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Imagenes finales/FEPneg.png}
+    \caption{FEP's empíricos de los datos tranformados.}
+    \label{mEj2eFEPtrans} 
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Ej2eCFEP.png}
+    \caption{Cociente FEP empíricos de los datos tranformados.}
+    \label{mEj2eCFEPtrans} 
+\end{figure}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{AjusteParetoneg.png}
+    \caption{Parámetros de la DGP Ajustada a Grupo 1 de datos negativos \(\xi =-0.254\), \(a(u)=3.124\) y \(u = 42.8\). Parámetros de la DGP Ajustada a Grupo 2 de datos negativos: \(\xi =-0.226\), \(a(u)=2.439\) y \(u = 81.9\).  Parámetros de la DGP Ajustada a Grupo 3 de datos negativos: \(\xi =-0.346\), \(a(u)=2.796  \) y \(u = 87.65\). Datos negativos.}
+    \label{DGPneg} 
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ext derechos max de max
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.5]{Imagenes finales/ExtremoderechoM.png}
+    \caption{Estimaciones de los extremos derechos, mediante la metodología vista en la ayudantía. Las estimaciones corresponden a los extremos derechos de \(F_1, F_2\) y \(F_3\) de manera respectivamente.}
+    \label{ExtDerDGP} 
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ext  izquierdos max de max
+\begin{figure}[htb]
+    \centering
+    \includegraphics[scale = 0.6]{Imagenes finales/ExtremoderNeg.png}
+    \caption{Estimaciones de los extremos derechos, mediante la metodología vista en la ayudantía. Las estimaciones corresponden a los extremos derechos de \(G_1, G_2\) y \(G_3\) de manera respectiva. Datos negativos.}
+    \label{mExtDerDGP} 
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\end{document}
