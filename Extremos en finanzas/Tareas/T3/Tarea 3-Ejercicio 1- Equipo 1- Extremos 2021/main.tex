@@ -1,0 +1,544 @@
+%Tarea 3,Extremos 
+%Ejercicio 1
+% Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel 
+% Mestría en Probabilidad y Estadística.
+\documentclass[10.5pt,notitlepage]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{subcaption}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsmath,amssymb}       
+\usepackage{enumitem}   
+\usepackage{enumerate}
+\usepackage{verbatim} 
+\usepackage{bbm}
+\usepackage[backend=biber,style=apa]{biblatex}
+\usepackage{csquotes}
+\DeclareLanguageMapping{spanish}{spanish-apa}
+\urlstyle{same}
+\addbibresource{refer.bib}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+\usepackage{makecell}
+\usepackage[spanish]{babel}
+\decimalpoint
+\usepackage[letterpaper]{geometry}
+\usepackage{mathrsfs}
+\newenvironment{solucion}
+  {\begin{proof}[Solución]}
+  {\end{proof}}
+\pagestyle{plain}
+\usepackage{pdflscape}
+\usepackage[table, dvipsnames]{xcolor}
+\usepackage{longtable}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+\usepackage[bottom]{footmisc}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{placeins}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Jj}{\mathcal{J}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\oo}{\varnothing}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\lL}{\mathrm{L}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\xx}{\mathbf{x}}
+\newcommand{\toPP}{\overset{\PP}{\to}}
+\newcommand{\toCS}{\overset{\mathrm{c.s.}}{\to}}
+\newcommand{\toL}{\overset{\mathrm{L}_1}{\to}}
+\newcommand{\todis}{\overset{\mathrm{d}}{\to}}
+\newcommand{\approxu}{\overset{u}{\approx}}
+\newcommand{\igualD}{\overset{d}{=}}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\inner}[1]{\left\langle #1 \right\rangle}
+\newcommand{\corch}[1]{\left[ #1 \right]}
+\newcommand{\kis}[1]{\left\{ #1 \right\}}
+\newcommand{\pare}[1]{\left( #1 \right)}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\Matrix}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\theoremstyle{plain}
+
+\newtheorem{thm}{Teorema}[section] % reset theorem numbering for each chapter
+\newtheorem{defn}[thm]{Definición} % definition numbers are dependent on theorem numbers
+\newtheorem{lem}[thm]{Lema} % same for example numbers
+\newtheorem{remarkex}{Observación}
+\newenvironment{rem}
+  {\pushQED{\qed}\renewcommand{\qedsymbol}{$\triangle$}\remarkex}
+  {\popQED\endremarkex}
+
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{etoolbox}
+\usepackage{fancybox}
+
+\newenvironment{myleftbar}{%
+\def\FrameCommand{\hspace{0.6em}\vrule width 2pt\hspace{0.6em}}%
+\MakeFramed{\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+\declaretheoremstyle[
+spaceabove=6pt,
+spacebelow=6pt
+headfont=\normalfont\bfseries,
+headpunct={} ,
+headformat={\cornersize*{2pt}\ovalbox{\NAME~\NUMBER\ifstrequal{\NOTE}{}{\relax}{\NOTE}:}},
+bodyfont=\normalfont,
+]{exobreak}
+
+\declaretheorem[style=exobreak, name=Ejercicio,%
+postheadhook=\leavevmode\myleftbar, %
+prefoothook = \endmyleftbar]{exo}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\title{Examen Parcial 1, Extremos \\
+Ejercicio 1\\
+Rojas Gutiérrez Rodolfo Emmanuel\\ 
+Maestría en Probabilidad y Estadística.}
+
+\author{}
+
+\begin{document}
+\begin{flushleft}
+Tarea 3, Extremos.\\
+Ejercicio 1.\\   
+Ramírez Saldaña Valery Pamela, Rojas Gutiérrez Rodolfo Emmanuel.\\
+Maestría en Probabilidad y Estadística.
+\end{flushleft}
+%\section{Ejercicio 2}
+Para el siguiente ejercicio será de utilidad el uso de los siguientes Lemas
+\begin{lem}\label{lem.1}
+Sean \(H\) y \(G\) dos funciones de distribución con extremos derechos respectivos \(\omega_H\) y \(\omega_G\). Si \(\omega_H < \omega_G < \infty\) entonces se cumple para cualquier \(p \in (0,1)\) que la función de distribución 
+\[
+F(x) = p H(x) + (1- p)G(x), \text{ con } x \in \RR,
+\]
+tiene el mismo extremo derecho que \(G\) y que 
+\begin{equation*}
+    \overline{F}(x) \approx (1 - p) \overline{G}(x), \text{ cuando } x \to \omega_{F} = \omega_{G}.
+\end{equation*}
+\end{lem}
+\begin{proof}
+Sean \(H\), \(G\) y \(F\) como en el enunciado del Lema y tome \(p \in (0,1)\), entonces, como por hipótesis \(\omega_{H} < \omega_{G}\) se sigue por la definición de \(\omega_{H}\) que \(H(\omega_{G}) = 1\), por otro lado, también se cumple que \(G(\omega_{G}) = 1\), pues, toda función de distribución con extremo derecho finito, evaluada en dicho extremo es igual a \(1\) debido a la continuidad por la derecha de la misma. De este modo, se satisface la igualdad 
+\begin{equation}\label{lab.1}
+    F(\omega_{G}) = pH(\omega_{G}) + (1 - p)G(\omega_{G}) = p + (1 - p) = 1.
+\end{equation}
+Ahora, sea \(x < \omega_{G}\) entonces \(G(x) < 1\), por lo cual 
+\begin{align*}
+    F(x) &= pH(x) + (1-p)G(x) \leq p + (1 - p)G(x) < p+ 1 - p = 1. 
+\end{align*}
+donde, la primer desigualdad se debe a que \(H\) es acotada superiormente por \(1\), pues, \(H\) es una función de distribución, mientras que, la segunda desigualdad se debe a que \(G(x)< 1\) y \(p \in(0,1)\). Luego, dada la arbitrariedad de \(x\in \RR\) tal que \(x <\omega_{G}\) se concluye de la desigualdad anterior, que 
+\[
+F(x) < 1, \text{ para cada } x < \omega_{G}.
+\]
+De lo anterior y de la ecuación en \eqref{lab.1}, se sigue que 
+\[
+\omega_{F} = \sup\kis{x\in \RR: F(x) < 1} = \omega_{G}.
+\]
+Con lo que, queda probada la primer parte de este Lema. Finalmente, tome \(x\in (\omega_H, \omega_{G})\) entonces se cumple\footnote{Pues, \(x < \omega_{G}\) y por ende \(G(x) <1\).} que \(\overline{G}(x) = 1- G(x) > 0\), así 
+\begin{align*}
+    \frac{\overline{F}(x)}{\overline{G}(x)} &= p\frac{\overline{H}(x)}{\overline{G}(x)} + (1 - p)\frac{\overline{G}(x)}{\overline{G}(x)}\\ 
+                                            &= p\frac{1 - H(x)}{\overline{G}(x)} + (1 - p)\frac{\overline{G}(x)}{\overline{G}(x)}\\
+                                            &=p\cdot 0 + 1 - p = 1-p,
+\end{align*}
+donde, en la segunda igualdad se ha hecho uso de que \(H(x) = 1\), pues, en particular \(x> \omega_{H}\). Luego, dada la arbitrariedad de \(x\in (\omega_H, \omega_{G})\) es posible concluir que 
+\[
+\frac{\overline{F}(x)}{\overline{G}(x)} = 1-p,\text{ para cada }x\in (\omega_H, \omega_{G}). 
+\]
+Así, de la igualdad anterior se concluye que \(\lim_{x \uparrow \omega_{G}}\overline{F}(x)/\overline{G}(x)\) existe y  
+\[
+\lim_{x\uparrow \omega_{G}}\frac{\overline{F}(x)}{\overline{G}(x)} = 1-p,
+\]
+De donde, gracias a la primer parte del Lema, se sigue que 
+\[
+\overline{F}(x) \approx (1 - p) \overline{G}(x), \text{ cuando } x \to \omega_{F} = \omega_{G}.
+\]
+Finalmente, de la arbitrariedad de \(p \in (0,1)\) se concluye el resultado del Lema. 
+\end{proof}
+Ahora, considere una variable aleatoria \(Z\) con distribución de Bernoulli con parámetro \(p \in (0,1)\) y, considere las funciones de distribución \(H\) y \(G\) como en el enunciado del Lema \ref{lem.1}. Así, defina una nueva variable aleatoria \(X\) la cual en el evento \(Z = 1\) se distribuye de acuerdo a \(H\), mientras que, en el evento \(Z = 0\) se distribuye de acuerdo a \(G\), de este modo, es posible hacer uso de la Ley de Probabilidad total para deducir la función de distribución de \(X\), la cual se denotará por \(F\), de la siguiente manera: Dado \(x \in \RR\)
+\begin{align}\label{lab.3}
+    F(x) &= \PP[X \leq x] = \PP[X \leq x| Z = 1]\PP[Z = 1] + \PP[X \leq x | Z = 0]\PP[Z = 0]\nonumber\\ 
+         &= pH(x) + (1 - p)G(x).
+\end{align}
+Es decir, la función de distribución \(F\) de \(X\) es de la forma estipulada en el Lema \ref{lem.1} y, por ende los resultados en dicho Lema aplican sobre esta función de distribución. Con este contexto en mente, se procederá a enunciar y demostrar el último Lema necesario para dar inició a la solución del Ejercicio, se advierte que para la demostración del mismo se usara el siguiente Teorema, que fue visto en el curso de Probabilidad Avanzada, por lo cual, se omite la demostración de dicho resultado.
+\begin{thm} \label{T1.2}
+Sean \(\{X_n : n\in \NN\}\) y \(\{Y_n: n \in \NN\}\) sucesiones de variables aleatorias sobre el mismo espacio de probabilidad tales que \(X_n\to X\) y \(Y_n\to Y\). Si ambas convergencias son casi seguras (en probabilidad), las siguientes afirmaciones son ciertas:
+\begin{itemize}
+     \item \(X_n+Y_n\to X+Y\)  casi seguramente (en probabilidad).
+    \item \(X_nY_n\to XY\)  casi seguramente (en probabilidad).
+\end{itemize}
+\end{thm}
+Tomando en cuenta esto último, se procederá a probar el Lema de interés.
+\begin{lem}\label{lem.2}
+Sean \(H\) y \(G\) como en el Lema \ref{lem.1} y considere las variables aleatorias \(Z\) y \(X\) como se definieron previamente. Si 
+\begin{equation}\label{asin.2}
+    \overline{G}(x + u) \approxu \overline{G}(u)\overline{P}_{\xi,a(\xi)}(x).
+\end{equation}
+y \(\kis{Z_n : n \in \NN}\) es una sucesión de variables aleatorias Bernoulli de parámetro \(p\), \(\kis{Y_n : n \in \NN}\) es una sucesión de variables aleatorias i.i.d con función de distribución común \(G\) y, para cada \(m \in \NN\) se define 
+\begin{equation*}
+    \hat{p}^{(m)} = \frac{\sum_{i = 1}^{m }Z_{i}}{m}, \quad \overline{G}_{m}(x) = \frac{\sum_{i = 1}^{m}\mathbbm{1}_{\kis{Y_{i} > x}}}{m}, \text{ para } x \in \RR.
+\end{equation*}
+Entonces, dado \(\ee > 0\) existe \(u_0< \omega_G\) tal que para cada \(u\in \RR\) con \(u_0 \leq u < \omega_G\), se satisface la convergencia:
+ \[
+\PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m + k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee}\to 0, \text{ cuando } m \to \infty,
+\]
+donde, \(\overline{F}\) es la cola de la función de distribución \(F\) de \(X\) y \(k\) es un número natural fijo. 
+\end{lem}
+\begin{proof}
+Considere \(H\), \(G\), \(X\), \(Z\), \(\kis{Z_{n} : n \in \NN}\), \(\kis{Y_{n} : n \in \NN}\), \(\kis{G_{m} : m \in \NN}\) y \(\kis{\hat{p}^{(m)} : m \in \NN}\) como en el enunciado del Lema \ref{lem.2}. Entonces, dado que la distribución Bernoulli de parámetro \(p\) posee media y varianza finita\footnote{\(p\) y \(p(1 - p)\) respectivamente.} y, dado que \(\kis{Z_{n} : n \in \NN}\) es una sucesión de variables aleatorias i.i.d con distribución Bernoulli(\(p\)), se sigue por la ley débil de los grandes números que 
+\begin{equation*}
+\hat{p}^{(m)} \toPP p, \text{ es decir para \(m \in \NN\) se tiene que } \hat{p}^{(m)} \text{ es un estimador débilmente consistente de \(p\).}    
+\end{equation*}
+Luego, note que \(\kis{\hat{p}^{(m+k)} : m \in \NN}\) con \(k\in \NN\) es una subsucesión de \(\kis{\hat{p}^{(m)} : m \in \NN}\) y, por el curso de Probabilidad Avanzada, se sabe que toda subsuseción de una sucesión convergente en probabilidad, es convergente en probabilidad y converge al mismo límite, así, se concluye de lo anterior que: 
+\begin{equation}\label{lab.4}
+    \hat{p}^{(m + k)} \toPP p, \text{ cuando } m \to \infty.   
+\end{equation}
+Ahora, si \(F\) denota a la función de distribución de \(X\) se sabe por lo hecho en \eqref{lab.3}, que 
+\[
+F(x) = pH(x) + (1 - p)G(x), \text{ con } x \in \RR \text{ y } p \in (0,1). 
+\]
+Luego, como \(H\) y \(G\) cumplen las condiciones del Lema \ref{lem.1}, se concluye de la relación anterior que los extremos derechos de \(G\) y \(F\) coinciden, en notación  \(\omega_{G} = \omega_{F}\), más aún, se satisface que 
+\begin{equation}\label{lab.5}
+    \overline{F}(x) \approx (1 - p) \overline{G}(x), \text{ cuando } x \to \omega_{F} = \omega_{G}.  
+\end{equation}
+Además, recuerde que por hipótesis se tiene que 
+\[
+\overline{G}(x + u) \approxu \overline{G}(u)\overline{P}_{\xi,a(u)}(x). 
+\]
+Así, gracias al Teorema 3.3 de las notas de clase, es posible concluir de lo anterior y de la relación de proporcionalidad asintótica en \eqref{lab.4},\footnote{Pues, \(1 - p >0 \) dado que \(p \in (0,1)\).} que
+\begin{equation*}
+\overline{F}(x + u) \approxu (1 - p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x).     
+\end{equation*}
+De este modo, dado \( \ee> 0\) existe \(u_0<\omega_G\) tal que para cada \(u\in \RR\) con \(u_0 \leq u < \omega_G\), se cumple que 
+\begin{equation}\label{lab.6}
+    \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x)} < \frac{\ee}{2},
+\end{equation}
+Así, observe que dados \(m \in \NN\) y \(u \in[u_0, \omega_G)\) se cumple que
+{\tiny
+\begin{align*}
+     &\sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\\ 
+     &= \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) - (1-p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x) +(1-p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x)- (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\\ 
+     %&= \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) - (1-p)\overline{G}(u)\overline{P}_{\xi,a(\xi)}(x) +(1-p)\overline{G}(u)\overline{P}_{\xi,a(\xi)}- (1 - \hat{p}^{(m)})\overline{G}_{m}(u)\overline{P}_{\xi,a(\xi)}(x)}\\ 
+     &\leq \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) - (1-p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x)} +\sup_{x \in (0, \omega_{G}- u)}\abs{(1-p)\overline{G}(u)\overline{P}_{\xi,a(u)(x)}- (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\\ 
+     &<\frac{\ee}{2} + \sup_{x \in (0, \omega_{G}- u)}\abs{(1-p)\overline{G}(u)\overline{P}_{\xi,a(u)}(x)- (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)},\
+\end{align*}}%
+donde, la primer desigualdad se da en virtud de la desigualdad del triángulo, mientras que, la última se da gracias a lo estipulado en \eqref{lab.6}. Así, se obtiene para \(m \in \NN\) y \(u \in[u_0, \omega_G)\) arbitrarios, que 
+{\tiny
+\begin{align}
+\sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m + k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} &\leq\frac{\ee}{2} + \sup_{x \in (0, \omega_{G}- u)}\abs{(1-p)\overline{G}(u)\overline{P}_{\xi,a(\xi)}(x)- (1 - \hat{p}^{(m + k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)}\nonumber\\ 
+&=\frac{\ee}{2} + \sup_{x \in (0, \omega_{G}- u)}\corch{\abs{(1-p)\overline{G}(u)- (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)}}. \label{lab.8}
+\end{align}
+}%
+Ahora, dado que \(\overline{P}_{\xi,a(u)}\) es la cola de una distribución generalizada de Pareto, entonces, \(\abs{\overline{P}_{\xi,a(u)}(x)} \leq 1\) para cada \(x \in (0, \omega_{G}- u)\), por lo cual, se cumple que 
+\[
+\abs{(1-p)\overline{G}(u)- (1 - p^{(m + k)})\overline{G}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)} \leq \abs{(1-p)\overline{G}(u)- (1 - p^{(m + k)})\overline{G}_{m}(u)}, 
+\]
+para cada \(x \in (0, \omega_{G}- u)\). De este modo, por la desigualdad anterior se concluye que 
+\[
+\sup_{x \in (0, \omega_{G}- u)}\corch{\abs{(1-p)\overline{G}(u)- (1 - p^{(m+k)})\overline{G}_{m}(u)}\abs{\overline{P}_{\xi,a(u)}(x)}} \leq \abs{(1-p)\overline{G}(u)- (1 - p^{(m+k)})\overline{G}_{m}(u)}.
+\]
+Así, de la desigualdad precedente y de la desigualdad en \eqref{lab.8} se obtiene para \(m \in \NN\) y \(u \in (\omega_G, u_0]\) arbitrarios, que  
+\[
+\sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} \leq \abs{(1-p)\overline{G}(u)- (1 - p^{(m +k)})\overline{G}_{m}(u)} + \frac{\ee}{2}.
+\]
+Ahora, note que la desigualdad anterior implica que
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee} \subseteq  \kis{ \abs{(1-p)\overline{G}(u)- (1 - p^{(m + k)})\overline{G}_{m}(u)} + \frac{\ee}{2} > \ee} ,
+\]
+}%
+o, equivalentemente
+{\tiny 
+\[
+\kis{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p^{(m + k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee} \subseteq  \kis{ \abs{(1-p)\overline{G}(u)- (1 - p^{(m+ k)})\overline{G}_{m}(u)} > \frac{\ee}{2}}.
+\]
+}
+Por lo cual, dada la monotonía de las medidas de probabilidad, se obtiene que
+{\tiny 
+\begin{equation*}
+    \PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee} \leq  \PP\corch{ \abs{(1-p)\overline{G}(u)- (1 - p^{(m + k)})\overline{G}_{m}(u)} > \frac{\ee}{2}} .
+\end{equation*}
+}
+Luego, de la arbitrariedad \(m \in \NN\) se concluye de la desigualdad anterior que 
+{\tiny 
+\begin{equation}\label{lab.10}
+  0\leq  \PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - p^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee} \leq  \PP\corch{ \abs{(1-p)\overline{G}(u)- (1 - p^{(m + k)})\overline{G}_{m}(u)} > \frac{\ee}{2}}, \text{ para cada }m \in \NN,
+\end{equation}
+}
+con \(u \in[u_0, \omega_G)\) arbitraria. Ahora, observe que por el Teorema de Glivenko-Cantelli, se tiene que 
+\begin{equation}\label{lab.11}
+\PP\corch{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{G}(y) - \overline{G}_{m}(y)} = 0}= 1,     
+\end{equation}
+De este modo, tome \(\omega \in \kis{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{G}(y) - \overline{G}_{m}(y)} = 0}\), entonces 
+\[
+\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{G}(y) - \overline{G}_{m}(y)}(\omega) = 0
+\]
+y
+\[
+0 \leq \abs{\overline{G}(u) - \overline{G}_{m}(u)}(\omega) \leq \sup_{y \in \RR}\abs{\overline{G}(y) - \overline{G}_{m}(y)}(\omega), \text{ para cada } m \in \NN.
+\]
+entonces, por el Teorema de la Encajadura de Límite\footnote{Coloquialmente Teorema del Sándwich} es posible concluir de las dos relaciones anteriores, que 
+\[
+ \lim_{m \to \infty}\abs{\overline{G}(u) - \overline{G}_{m}(u)}(\omega) = 0,
+\]
+por lo que \(\omega \in \kis{ \lim_{m \to \infty}\abs{\overline{G}(u) - \overline{G}_{m}(u)} = 0}\), de donde se concluye que 
+\[
+\kis{\lim_{m \to \infty}\sup_{y \in \RR}\abs{\overline{G}(y) - \overline{G}_{m}(y)} = 0}\subseteq \kis{\lim_{m \to \infty}\abs{\overline{G}(u) - \overline{G}_{m}(u)} = 0}.
+\]
+De este modo, usando la monotonía de las medidas de probabilidad, la contención anterior y la igualdad en \eqref{lab.11}, se sigue que 
+\[
+\PP\corch{\lim_{m \to \infty}\abs{\overline{G}(u) - \overline{G}_{m}(u)} = 0} = 1, 
+\]
+lo anterior quiere decir que 
+\[
+\abs{\overline{G}(u) - \overline{G}_{m}(u)} \toCS 0, \text{ cuando } m \to \infty,
+\]
+o, equivalentemente que 
+\[
+ \overline{G}_{m}(u) \toCS \overline{G}(u),  \text{ cuando } m \to \infty.
+\]
+Luego, como convergencia c.s implica convergencia en probabilidad entonces por la convergencia anterior, se tiene que
+\begin{equation}\label{lab.12}
+   \overline{G}_{m}(u) \toPP \overline{G}(u),  \text{ cuando } m \to \infty.  
+\end{equation}
+Ahora, dado que \(f:\RR\to \RR\) con regla de correspondencia \(f(x) = 1 - x\), es continua como función de \(\RR\) en si mismo y puesto que \(p\) es simplemente un real en \((0,1)\), entonces, por la relación de convergencia en \eqref{lab.4}, se sigue del Teorema del Mapeo Continuo para Convergencia en Probabilidad, que:
+ \[
+ 1 - \hat{p}^{(m+k)} \toPP 1 - p, \text{ cuando } m \to \infty.
+ \]
+ Finalmente, de la relación anterior, de la relación en \eqref{lab.12} y el Teorema \ref{T1.2} se sigue que 
+ \[
+  (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u) \toPP (1 - p)\overline{G}(u), \text{ cuando } m \to \infty,
+ \]
+ Por lo cual, se debe tener que 
+ \[
+  \PP\corch{ \abs{(1-p)\overline{G}(u)- (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)} > \frac{\ee}{2}} \to 0, \text{ cuando } m \to \infty.
+ \]
+ Así, de lo anterior, la desigualdad en \eqref{lab.10} y el Teorema de la Encajadura del Limite, se sigue que 
+ \[
+  \PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee}\to 0, \text{ cuando } m \to \infty.
+ \]
+ Y, de la arbitrariedad de \(u \in[u_0, \omega_G)\) se concluye de lo anterior que: Para cada \(u \in \RR\) tal que \(u_0 \leq u < \omega_G\) se cumple que 
+ \[
+   \PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee}\to 0, \text{ cuando } m \to \infty.
+ \]
+ De este modo, dado \(\ee > 0\) se ha encontrado \(u_0 <\omega_G\) tal que para cada \(u\in \RR\) con \(u_0 \leq u < \omega_G\), se satisface la convergencia:
+ \[
+\PP\corch{ \sup_{x \in (0, \omega_{G}- u)}\abs{\overline{F}(x + u) -  (1 - \hat{p}^{(m+k)})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)} > \ee}\to 0, \text{ cuando } m \to \infty.
+\]
+Lo que concluye el resultado.
+\end{proof}
+\setcounter{exo}{0}
+\begin{exo}
+ El archivo ``insurance-claims-autos.csv'' contiene información sobre montos de seguros de autos hechos efectivos. Utiliza estos datos para estimar la probabilidad de que, de 500 nuevos reclamos, al menos la mitad excedan el valor de 72 000 unidades monetarias.
+\end{exo}
+Para este ejercicio, se tomarán en cuenta los datos contenidos en el archivo  “insurance-claims-autos.csv”, cabe destacar que los montos de los reclamos fueron divididos entre 1000, para una mejor visibilidad de los datos. En la Figura \ref{1.1} tenemos el primer gráfico exploratorio, en el cual se puede observar de manera clara una división dos grupos en estos datos, por lo que, se decidió dividir los datos de acuerdo a la linea roja trazada, la cual, divide los montos de reclamación entre aquellos que rebasan las \(20\) por mil unidades monetarias y los que no. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{E1.1}
+\caption{Gráfica de los Datos.}
+\label{1.1}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{E1.2.png}
+\caption{Gráfica de los Datos.}
+\label{1.2}
+\end{figure}
+De este modo, se propondrá el siguiente modelo para modelar las reclamaciones de este conjunto. Considere dos funciones de distribución \(H\) y \(G\) con extremos derechos respectivos $\omega_H$ y $\omega_G$, ahora, suponga que cualquier monto de reclamación \(X\) que llega, tiene distribución \(H\) si una variable aleatoria Bernoulli\((p)\) con \(0 < p <1\), toma el valor de \(1\), mientras que, si dicha variable aleatoria Bernoulli toma el valor de \(0\), entonces, este reclamo tiene por función de distribución a \(G\). De este modo, la función de distribución no condicional del reclamo \(X\), tiene la forma
+\begin{equation}\label{lab.2323}
+    F(x) = pH(x) + (1 - p)G(x), \text{ con } x \in \RR.
+\end{equation}
+Adicionalmente, se supondrá que cada monto de reclamo en conjunto con la variable aleatoria Bernoulli\((p)\) que determina su distribución, es independiente del resto de montos de reclamo y variables de Bernoulli que definen la distribución de dichos montos. De este modo, fije su atención en la gráfica en la Figura \ref{1.2}, en la misma se presentan las observaciones separadas por color en dos grupos, de acuerdo a la linea trazada en la gráfica en la Figura \ref{1.1}. Así, dado el planteamiento de nuestro modelo de reclamaciones, se supondrá que las observaciones en azul provienen de la distribución \(G\), por lo cual, sus correspondientes Bernoulli asociadas poseen el valor de \(0\), mientras que, las observaciones en rojo se asumirán observaciones de la distribución \(H\), por lo que, sus correspondientes Bernoulli asociadas poseen el valor de \(1\). Ahora, observe que dado un conjunto nuevo de \(500\) reclamaciones, se busca pronosticar la probabilidad de que al menos \(250\) de ellas excedan el valor \(72\).\footnote{Esto, pues se escalo por un factor de \(1/1000\) a los montos de reclamación.} Con esto en mente, suponga que \(\kis{(X_i,Z_i) : i \in \kis{1, \hdots, 500} }\) son esas futuras \(500\) reclamaciones, en conjunto con sus respectivas variables Bernoulli asociadas, entonces, por nuestros supuestos iniciales se tiene que \(\kis{(X_i,Z_i) : i \in \kis{1, \hdots, 500}}\) es un conjunto de vectores aleatorios independientes, sin embargo, dado que aún se desconoce el valor de las variables Bernoulli \(\kis{Z_i: i \in  \kis{1, \hdots, 500}}\), la única información que se puede inferir de las futuros montos de reclamación \(\kis{X_i: i\in\kis{1, \hdots, 500}}\), es que forman un conjunto de variables aleatorias independientes y con idéntica distribución \(F\). De este modo, si para \(i \in \kis{1, \hdots, 500}\)  se definen las variables aleatorias 
+\[
+\chi_{i} = \mathbbm{1}_{\kis{X_i > 72}}, 
+\]
+se sigue que, \(\kis{\chi_i : i \in \kis{1, \hdots, 500}}\) es un conjunto de variables aleatorias independientes y con idéntica distribución Bernoulli\((\overline{F}(72))\). Más aún, note que el número de montos de reclamación que exceden el umbral \(72\), estan dados por la variable aleatoria 
+\[
+Y_{500} = \sum_{j = 1}^{500}\chi_{i} \sim \text{Binomial}(500,\overline{F}(72)),
+\]
+donde, la distribución de \(Y_{500}\) se infiere del hecho de que esta variable aleatoria, es una suma de \(500\) variables aleatorias Bernoulli independientes de parámetro \(\overline{F}(72)\). Así, se busca estimar el valor de\footnote{Para la primer igualdad, se ha usado que \(Y_{500}\) tiene soporte en \(\kis{0,1,2,\hdots,499, 500}\).}
+\[
+\PP[Y_{500} \geq 250] = \PP[Y_{500} > 249] = \overline{F}_{Y_{500}}(249). 
+\]
+donde, \(\overline{F}_{Y_{500}}\) es la cola de la función de distribución de una variable aleatoria Binomial\((500, \overline{F}(72))\). De este modo, si se tuviera una estimación eficiente para de \(\overline{F}(72)\), entonces, una manera de estimar la probabilidad solicitada, seria evaluando en \(249\) la cola de la función de distribución de una Binomial, con parámetros \(500\) y la estimación obtenida para \(\overline{F}(72)\). Por ende, nuestro problema se reduce a estimar de manera eficiente el valor de \(\overline{F}(72)\) y, afortunadamente, por la forma que tiene \(F\) podríamos usar el Lema \ref{lem.2} para aproximar \(\overline{F}(72)\), si podemos validar que no existe evidencia en contra de que \(G\) y \(H\), las distribuciones que componen la mezcla \(F\), cumplan las hipótesis solicitadas en este Lema para las distribuciones que forman parte de la mezcla. Por lo que, como primer paso se buscará validar estas hipótesis.
+
+Teniendo lo anterior en cuenta, primeramente se validará que no hay evidencia en contra de que tanto \(G\) como \(H\) poseen extremos derechos finitos, gráficamente al ver la dispersión de los datos en los grupos rojo y azul en la Figura \ref{1.2}, difícilmente se podría pensar que \(G\) y \(H\) poseen extremos derechos infinitos, no obstante, se recurrirá a herramientas un poco más sofisticadas para intentar validar esto último. Con esto en mente, observe la gráfica en el lado izquierdo de la Figura \ref{1.3}, en ella puede observar la función de exceso promedio empírica del conjunto de montos de reclamación en el grupo rojo, los cuales supusimos inicialmente provienen de la distribución \(H\), note que, la función de exceso promedio empírica comienza mostrando un comportamiento decreciente en \(u\), que cambia para valores grandes de \(u\), no obstante, la parte del gráfico en la que se da el cambio más remarcado en la tendencia, es la parte en la que existen menos y menos valores para el cálculo de la misma, (lo cual puede apreciarse en los picos formados hacia la parte final del gráfico), por ende, la función de exceso promedio empírica de estos datos no parece crecer sin control o tender hacia infinito, de hecho, si existiese el límite de la misma cuando su argumento tiende a infinito, este gráfico pareciera indicar que dicho límite sería finito, por ende, se concluye que bajo esta gráfica no hay evidencia en contra de que \(H\) posea cola ligera, lo que a su vez implica que no hay evidencia en contra bajo este criterio gráfico de que el extremo derecho \(\omega_{H}\) de \(H\), sea finito. Por otro lado, en el lado izquierdo de la Figura \ref{1.4}, puede apreciar un gráfico de la función de exceso promedio empírica de los datos en el conjunto azul, dicha gráfica posee una tendencia decreciente bastante marcada, lo cual, al igual que en el caso anterior indican que no hay evidencia en contra de la hipótesis de que \(G\) posee cola ligera y, por ende, no existe evidencia en contra de que \(G\) posea extremo derecho finito. Ahora, veamos que pasa con la pertenencia de \(H\) o \(G\) a algún dominio de atracción, ya que, en caso de ambas distribuciones presentasen evidencia en contra de su pertenencia a algún dominio maximal, entonces, sería imposible aplicar el Lema \ref{lem.2}, pues, no tendríamos forma de corroborar que se cumpla la relación asintótica en \eqref{asin.2} pedida por este Lema. No obstante, si al menos una de las dos distribuciones cumpliera estar en algún dominio de atracción, se seguiría del Corolario 3.1 de las notas de clase  que la misma cumpliría la relación asintótica en \eqref{asin.2}. Ahora, en la Figura \ref{1.3} se puede observar un gráfico con el cociente de la función de exceso promedio empírica, de los reclamos en el grupo rojo, entre la identidad. En dicha gráfica se puede observar como el cociente $e_F(u)/u$ va creciendo conforme $u$ crece, (a excepción de los valores después de 10, esto debido a que existen pocos excesos), y dicho comportamiento no coincide con lo que se esperaría ver si la función de distribución del grupo rojo perteneciera a algún dominio de atracción, ya que $e_F(u)/u$ no parece tender a cero ni estabilizarse en algún valor positivo conforme $u$ aumenta su valor, por lo que, no hay evidencia en contra de que la función de distribución de este grupo no pertenece a ningún dominio de atracción.
+\begin{figure}[!tbp]
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{FEMR.png}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{CFEMR.png}
+  \end{subfigure}
+  \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos Rojo.}
+\label{1.3}
+\end{figure}
+Por otro lado, en la gráfica a la derecha de la figura \ref{1.4} se puede observar la gráfica del cociente de la Función de Exceso Promedio Empírica entre la identidad, para el grupo de datos Azul, en la cual se puede notar que $e_F(u)/u$ va decreciendo y acercándose a cero incluso para valores de $u$ no tan grandes, lo que, en conjunto con el hecho que por el análisis anterior no hay evidencia en contra sobre que la función de distribución \(G\) posea extremo derecho finito, se sigue que no parece existir evidencia en contra de que la función de distribución de los datos del grupo azul pertenezca al dominio de atracción Weibull.\footnote{Pues, se tiene el comportamiento asintótico esperado de la función de exceso promedio empírica de una distribución perteneciente a este dominio. Podría a rgumentarse que este también es el caso si \(G\) fuera parte del dominio Gumbel, no obstante y como se dijo en clase, en el caso de distribuciones que pertenezan al dominio Gumbel y posean extremo derecho finito, no hay una forma de caracterizar en todos los casos el comportamiento asintótico del cociente de su función de exceso promedio entre la identidad y, dado que no existe evidencia en contra de que \(\omega_{G} < \infty\), entonces, se descarto dicho dominio.}
+\begin{figure}[!tbp]
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{FEMA.png}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{CFEMA.png}
+  \end{subfigure}
+  \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos Azul.}
+\label{1.4}
+\end{figure}
+%Por último se realizaron las dos gráficas anteriores para el conjunto de datos completo, se puede ver en la figura \ref{1.5} que conforme $u$ crece el cociente de la Función de Exceso Promedio Empírica se va acercando a cero.
+%\begin{figure}[!tbp]
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{FEM.png}
+ % \end{subfigure}
+ % \hfill
+ % \begin{subfigure}[b]{0.44\textwidth}
+ %   \includegraphics[width=\textwidth, %height=\textwidth]{CFEM.png}
+ % \end{subfigure}
+ % \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos Azul.}
+%\label{1.4}
+%\end{figure}
+Ahora, para tener otro criterio sobre la falta de evidencia en contra de la pertenencia de \(G\) al dominio Weibull, se transformaron estos datos de reclamaciones mediante la función $t(x) = 1/(\max{DatosAzules} - x)$ para hacer uso de la relación entre los dominios de atracción Weibull y Fréchet, es decir, si estos datos transformados no presentan evidencia en contra de su pertenencia al dominio de atracción Fréchet, tampoco existiría evidencia en contra de que los datos no transformados vivan en el Weibull.
+%\begin{figure}[!tbp]
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{FEMtransR.png}
+ % \end{subfigure}
+ % \hfill
+ % \begin{subfigure}[b]{0.44\textwidth}
+ %   \includegraphics[width=\textwidth, height=\textwidth]{CFEMtransR.png}
+ % \end{subfigure}
+ % \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos transformados Rojo.}
+%\label{1.6}
+%\end{figure}
+\begin{figure}[!tbp]
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{FEMtransA.png}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.44\textwidth}
+    \includegraphics[width=\textwidth, height=\textwidth]{CFEMtransA.png}
+  \end{subfigure}
+  \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos transformados Azul.}
+\label{1.7}
+\end{figure}
+%\begin{figure}[!tbp]
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{FEMtrans.png}
+%  \end{subfigure}
+%  \hfill
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{CFEMtrans.png}
+%  \end{subfigure}
+%  \caption{Función de Exceso Promedio Empírica y Cociente de la Función de Exceso Promedio Empírica para el grupo de datos transformados .}
+%\label{1.8}
+%\end{figure}
+Así, se deja en al lado derecho de la Figura \ref{1.7} la gráfica del cociente de la Función de Exceso Promedio Empírica de los datos trasformados. Note que, parece que $e_F(u)/u$ tiende a una constante positiva,\footnote{Nuevamente, los picos que se presentan al final de la gráfica para $u=0.10$ se debe a la poca cantidad de excesos que se tienen después de ese valor.} por lo que los datos transformados del grupo azul no presentan evidencia en contra de su pertenencia al dominio de atracción Fréchet. Lo que, en conjunto con el análisis hecho para los datos azules no transformados y el Teorema 2.10 de las notas que clase, permite concluir que no hay evidencia en contra de que la función de distribución \(G\), pertenezca al dominio de atracción Weibull o, equivalentemente, que pertenezca al dominio de atracción \(D(H_{\xi,a, b})\) para algunas constantes \(\xi < 0\), \(a > 0\) y \(b \in \RR\). Así, por el Corolario 3.1 de las notas de clase, no existe evidencia en contra de que la distribución \(G\) cumpla la relación asintótica en \eqref{asin.2}. De este modo, basta verificar que no hay evidencia en contra de que \(\omega_H < \omega_G\) para hacer uso del Lema \ref{lem.2} y aproximar \(\overline{F}(72)\). Para ello, primeramente fije su atención en la gráfica en la Figura \ref{1.2}, de este modo, recordando que se supuso que las observaciones de montos de reclamción en rojo poseían distribución \(H\), mientras que, las azules poseían distribución \(G\), entonces, se concluye que visualmente parece no haber evidencia en contra del supuesto  $\omega_H$ $<$ $\omega_G$. No obstante, para corroborar lo anterior se utilizaran métodos analíticos, no sin antes recordar que en la ayudantía se vio el siguiente estimador empírico, para el extremo derecho de funciones de distribución $F_1$ que pertenecen a un dominio de atracción.
+\begin{lem}
+Sea $X_1, X_2,...$ una sucesión de $v.a.i.i.d.$ con distribución común $F_1$. Supóngase que $F_1 \in
+D(H_{\xi,a,b})$ y que $\omega_{F_1} < \infty$. Denotemos por $X_{1,n}, X_{2,n},..., X_{n,n}$ los estadísticos de orden del conjunto de variables
+$X_1,..., X_n$. Se define
+\[\hat{\omega}_{F_1}:=X_{n,n}+\sum_{i=0}^{k-1}a_{i,k}(X_{n-k,n}-X_{n-k-i,n}),\]
+con $a_{i,k}=\log\left ( \frac{k+i+1}{k+i} \right )/\log(2)$. Si $k = k_n$ cumple que $k\to \infty$ y $k/n \to 0$ cuando $n \to \infty$, entonces
+$\hat{\omega}_{F_1} \to \omega_{F_1}$ , cuando $n \to \infty$
+donde la convergencia es casi segura. \label{lem4}
+\end{lem}
+Con esto en mente, se procederá a dar una estimación de los extremos derechos de $H$ y $G$. Ahora, como no hay evidencia en contra de que la función de distribución $G$ viva en el dominio de atracción Weibull, se utilizó el Lema \ref{lem4} para estimar su extremo derecho, mientras que, para la función de distribución $H$ se tomo el máximo de la muestra, pues, hay evidencie de que esta distribución no vive en ningún dominio de atracción maximal, por lo que, no sería correcto aplicar el Lema \ref{lem4}, no obstante, por lo comentado al analizar la gráfica de la función de exceso promedio empírica de los montos de reclamación en el grupo rojo, no hay evidencia en contra de que el extremo derecho de \(H\) es fínito, por lo que, el máximo es por ahora la mejor estimación de dicho extremo que podemos dar. De esta manera, se obtuvieron las siguientes estimaciones $\hat{\omega}_H=19.08$ y $\hat{\omega}_G=118.9449$ de los extremos derechos de \(H\) y \(G\) respectivamente, así, dado que la estimación de \(\omega_{H}\) es mucho menor a la estimación de \(\omega_{G}\), se deduce que no hay evidencia en contra de que los verdaderos extremos derechos de estas distribuciones cumplan la desigualdad \(\omega_{H} < \omega_{G}\). Habiendo corroborado las hipótesis del Lema \ref{lem.2}, se estimara la cola de \(F\) en $72$ haciendo uso de este Lema en conjunto con el método de exceso sobre un umbral, de la siguiente manera:
+\begin{itemize}
+    \item[1.] Dado que no hay evidencia en contra de que \(G\) cumple la relación asintótica en \eqref{asin.2}, se ajustara una distribución generalizada de Pareto mediante el método de exceso sobre un umbral, para aproximar la cola de \(G\).
+    \item[2.] Se calculara con los datos en azul, la cola empírica de \(G\) en el umbral \(u\) elegido en el paso anterior, como la cola empírica para este conjunto de datos estará basado en la muestra de datos azules de tamaño \(m = 820\), entonces, denotaremos a esta cola empírica como \(\overline{G}_{m}\).
+    \item[3.] Se estimará el parámetro \(p\) de las Bernoulli asociadas a los montos de reclamación, haciendo uso de la muestra aleatoria observada de las variables Bernoulli asociadas a los reclamos, mediante el promedio de las mismas con lo que se obtendrá un estimador \(\hat{p}^{m+k}\) de \(p\), como el solicitado por el Lema \ref{lem.2}. Dado que, esta estimación estará basada en el total de muestra y se tienen \(1000\) observaciones de reclamos, entonces, se tienen \(1000\) observaciones Bernoullis independientes asociadas a ellos, así \(m + k = 1000\), entonces, \(k = 180\).
+    \item[4.] Con estos elementos, el Lema \ref{lem.2} sugiere la siguiente aproximación para \(\overline{F}(72)\): \footnote{Donde, el símbolo \(\approx\) debe interpretarse en el sentido del Lema \ref{lem.2}.}
+    \[
+     \overline{F}(72) = \overline{F}(x+u)\approx (1-\hat{p}^{m + k})\overline{G}_{m}(65)\overline{P}_{\xi,a(u)}(x).
+    \]
+    donde, \(u\) y \(\overline{P}_{\xi,a(u)}(x)\) denotan, de manera respectiva, el umbral elegido en el paso 1 y la cola de la distribución Pareto ajustada en 1, evaluada en \(x\), con \(x\) tal que \(x>0\) y \(x+u = 72\).
+\end{itemize}
+
+Con esto en mente, se buscará aproximar la cola de \(G\) mediante una distribución de Pareto generalizada, para ello, como primer paso se debe seleccionar un umbral adecuado para el ajuste y, en nuestro caso, el criterio para seleccionar este umbral será simplemente buscar en un rango de $61$ a $71$, pues, dado que la estimación para la cola \(\overline{F}\) dada en el Lema \ref{lem.2}, solo sirve para aproximar valores de \(\overline{F}\) posteriores al umbral estimado, entonces, umbrales mayores a \(71\) podrían no ser útiles. Así, se construyo con ayuda de la función \(gpd.fitrange\) la gráfica presentada en la Figura \ref{1.10}, la cual en su parte inferior nos muestra la estimación por máxima verosimilitud del parámetro de forma, para la distribución Pareto generalizada que se ajusta a los datos azules que exceden el umbral marcado en el eje \(x\), donde, dichos umbrales varían en el intervalo de \([60,71]\). Ahora, se observa que la estimación del parámetro de forma parece estabilizarse en un intervalo de valores para el umbral en el intervalo \([60,65]\), de este modo se eligió el umbral $u=65$.\footnote{Se eligió el extremo más grande de este intervalo, pues, la cola empírica \(\overline{G}_{n}(65)\) posee un valor de \(0.4195\), lo cual esta bastante alejado de la recomendación empírica para el valor de umbral, y por ende, se estaría aún más alejado de esta recomendación, de elegir el umbral a la izquierda de este valor.}
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{umbral.jpeg}
+\caption{Gráfica para selección del umbral}
+\label{1.10}
+\end{figure}
+Habiendo seleccionado el parámetro de umbral, se procedió a hacer el ajuste de la distribución Pareto Generalizada a los datos de reclamos en el conjunto azul que exceden dicho umbral, todo esto con el comando \(gpd.fit\) de \(R\), con lo que se obtuvieron las siguientes estimaciones de máxima verosimilitud para los parámetros de esta DGP.
+\begin{equation}\label{params}
+    \Matrix{\text{escala=a(u)=} 16.8615 & \text{forma = \(\xi\)= }-0.2974.
+}.
+\end{equation}
+Posteriormente, se construyeron las gráficas de diagnostico para este ajuste con el comando \(gpd.diag\), dichas gráficas se pueden observar en la Figura \ref{1.11}  y en todas ellas se puede apreciar en primera instancia que el ajuste parece ser muy bueno.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{DiagUm.jpeg}
+\caption{Gráficas de diagnostico con un umbral de 65.}
+\label{1.11}
+\end{figure}
+Ahora, se necesita una estimación del parámetro \(p\) de las Bernoullis asociadas, dicha estimación, como ya se comento, se puede hacerse con las observaciones de las variable Bernoulli asociadas a las reclamaciones observadas, las cuales son una muestra aleatoria de variables Bernoulli de parámetro \(p\),\footnote{Por la independencia supuesta en un inicio.} ahora, las variables Bernoulli con valor \(1\) son aquellas asociadas a los datos en rojo, por ende, el promedio de esta muestra de variables Bernoulli coincide con el cociente del número de observaciones de color rojo entre el número total de observaciones de reclamos, así:
+\[\hat{p}^{m+ k}=\frac{\#TotalObsColorRojo}{\#TotalReclamos} =\frac{180}{1000}= 0.18.\]
+Por otra parte, el valor de la cola empírica \(G_{m}\) de \(G\) en el umbral selecionado \(u\), se calcula como el promedio de los reclamos azules que exceden el umbral dicho, pues, las observaciones de estos reclamos se supusieron observaciones de la distribución \(G\) independientes entre ellas, así:
+\[
+\overline{G}_{m}(u) = 0.4195.
+\]
+De este modo, tome \(x = 7\) entonces suponiendo que el umbral \(u= 65\) y el natural \(m = 820\) son suficientemente grandes, el Lema \ref{lem.2} sugiere la siguiente aproximación para \(\overline{F}(72)\): 
+\begin{equation}\label{ll.2}
+    \overline{F}(72) \approx \overline{F}(7+u)\approx (1-\hat{p}^{m + k})\overline{G}_{m}(u)\overline{P}_{\xi,a(u)}(x)=0.2209
+\end{equation}
+donde, \(\overline{P}_{\xi,a(u)}\) es la cola de la distribución de Pareto ajustada a los datos \(G\). Finalmente, como se mencionó anteriormente, la probabilidad solicitada se estimo como: 
+\[\overline{F}_{Y_{500}}(249)=1.3941\cdot 10^{-42}\]
+donde, \(\overline{F}_{Y_{500}}\) es la cola de una distribución binomial con parámetro de conteo \(500\) y probabilidad de éxito, dada por el valor aproximado para \(\overline{F}(72)\) en \eqref{ll.2}. Lo que concluye el ejercicio. 
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{comment}
+Ahora, descartaremos la posibilidad de que el conjunto de datos viva en el dominio Gumbel, 
+%\begin{figure}[!tbp]
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{FEMtrans.png}
+%  \end{subfigure}
+%  \hfill
+%  \begin{subfigure}[b]{0.44\textwidth}
+%    \includegraphics[width=\textwidth, height=\textwidth]{GUM.png}
+%  \end{subfigure}
+%  \caption{}
+%\label{1.9}
+%\end{figure}
+ para ellos utilizaremos 
+la  prueba de cociente de verosimilitudes con un nivel de significación $0.05$.
+Suponiendo que, en efecto, la distribución de nuestros datos pertenece a algún dominio de atracción, se desea contrastar
+la pareja de hipótesis
+\[H_0: \xi=0\;\;\;vs\;\;\;H_1:\xi \neq 0\]
+Para ello se utilizará el estadístico de prueba
+\[LR=2\left [ l(\hat{a},\hat{b},\hat{\xi}|\vec{x})-l(\hat{a},\hat{b}|\vec{x}.\xi=0) \right ]\]
+Este estadístico tiene asintóticamente una distribución $\chi^2_1$. 
+Para el caso de nuestros datos, nuestro estadístico tiene el valor de $4.025877$, el  cuantil $0.95$  de la distribución $\chi^2_1$
+ es $3.841459$, como el estadístico es mas grande que el cuantil de la distribución $\chi^2_1$ rechazamos la hipótesis nula.\\ 
+
+\end{comment}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
